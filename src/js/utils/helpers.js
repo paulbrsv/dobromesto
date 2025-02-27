@@ -1,4 +1,4 @@
-import { getMarkers, map } from '../components/map.js';
+import { getMarkers, getMap } from '../components/map.js';
 
 let highlightedMarker = null;
 
@@ -17,7 +17,7 @@ export function highlightMarker(placeName) {
     });
     marker.setIcon(highlightedIcon);
     highlightedMarker = marker;
-    map.setView(marker.getLatLng(), map.getZoom(), { animate: true });
+    getMap().setView(marker.getLatLng(), getMap().getZoom(), { animate: true }); // Используем getMap()
   }
 }
 

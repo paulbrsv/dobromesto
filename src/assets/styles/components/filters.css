@@ -63,9 +63,9 @@
 .filter-divider {
   width: 2px;
   background-color: #ccc;
-  height: 100%;
-  margin-top: 0px;
-  align-self: stretch;
+  height: 65px; /* Фиксируем высоту для видимости */
+  margin: 0 5px; /* Добавляем отступы для пространства */
+  align-self: center; /* Центрируем вертикально */
 }
 
 .filter-reset {

@@ -1,4 +1,4 @@
-import { map } from './map.js';
+import { getMap } from './map.js'; // Заменяем import { map } на getMap
 import { highlightMarker, resetHighlight } from '../utils/helpers.js';
 import { attributeNames } from '../data/config.js';
 
@@ -12,6 +12,7 @@ export function updateSidebar(filteredPlaces) {
   visibleList.innerHTML = "";
   outsideList.innerHTML = "";
 
+  const map = getMap(); // Используем getMap() для получения map
   const bounds = map.getBounds();
   const mapCenter = map.getCenter();
 

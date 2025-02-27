@@ -1,19 +1,21 @@
 import { updateSidebar } from './sidebar.js';
 import { highlightMarker, resetHighlight } from '../utils/helpers.js';
-import { attributeNames } from '../data/config.js';
+import { attributeNames, mapConfig } from '../data/config.js';
+import { getActiveFilters } from './filters.js';
 
-export let map = L.map('map').setView([45.2517, 19.8389], 14);
+let map;
 let markerCluster = L.markerClusterGroup();
 let markers = {};
 let placesData = [];
 
 export function initMap() {
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    attribution: '© OpenStreetMap contributors & Carto'
+  map = L.map('map').setView(mapConfig.initialCoords, mapConfig.initialZoom);
+  L.tileLayer(mapConfig.tileLayerUrl, {
+    attribution: mapConfig.attribution
   }).addTo(map);
   map.addLayer(markerCluster);
 
-  fetch('../../places.json')
+  fetch('/places.json')
     .then(response => response.json())
     .then(data => {
       placesData = data;
@@ -138,4 +140,8 @@ function showMobilePlaceCard(place) {
 
 export function getMarkers() {
   return markers;
+}
+
+export function getMap() {
+  return map;
 }
