@@ -10,7 +10,9 @@ export const attributeNames = {
   "coffee_shop": '<img src="https://paulbrsv.github.io/goodplaces/image/coffee.svg" alt="Cafe" class="atr-icon">',
   "snacks": '<img src="https://paulbrsv.github.io/goodplaces/image/sandwich.svg" alt="Snacks" class="atr-icon">',
   "food": '<img src="https://paulbrsv.github.io/goodplaces/image/food.svg" alt="Snacks" class="atr-icon">',
-  "terrace": '<img src="https://paulbrsv.github.io/goodplaces/image/terrece.svg" alt="Terrace" class="atr-icon">'
+  "terrace": '<img src="https://paulbrsv.github.io/goodplaces/image/terrece.svg" alt="Terrace" class="atr-icon">',
+  "bar": '<img src="https://paulbrsv.github.io/goodplaces/image/bar.svg" alt="Bar" class="atr-icon">',
+  "vegan": '<img src="https://paulbrsv.github.io/goodplaces/image/vegan.svg" alt="Vegan" class="atr-icon">'
 };
 
 // Иконки фильтров (для UI фильтров)
@@ -25,7 +27,9 @@ export const filterIcons = {
   "snacks": 'https://paulbrsv.github.io/goodplaces/image/sandwich.svg',
   "desserts": 'https://paulbrsv.github.io/goodplaces/image/cake.svg',
   "beer": 'https://paulbrsv.github.io/goodplaces/image/beer.svg',
-  "wine": 'https://paulbrsv.github.io/goodplaces/image/wine.svg'
+  "wine": 'https://paulbrsv.github.io/goodplaces/image/wine.svg',
+  "bar": 'https://paulbrsv.github.io/goodplaces/image/bar.svg',
+  "vegan": 'https://paulbrsv.github.io/goodplaces/image/wine.svg'
 };
 
 // Подсказки для фильтров
@@ -73,6 +77,14 @@ export const filterTooltips = {
   "wine": {
     en: "Offers a selection of wines",
     ru: "Есть выбор вин"
+  },
+  "Bar": {
+    en: "Барное меню: пиво, коктейли, вино",
+    ru: "Барное меню: пиво, коктейли, вино"
+  },
+  "Vegan": {
+    en: "Барное меню: пиво, коктейли, вино",
+    ru: "Еда для вегетарианцев"
   }
 };
 
@@ -121,6 +133,14 @@ export const filterNames = {
   "wine": {
     en: "Wine",
     ru: "Wine"
+  },
+  "bar": {
+    en: "Bar",
+    ru: "Bar"
+  },
+  "vegan": {
+    en: "Vegan",
+    ru: "Vegan"
   }
 };
 
