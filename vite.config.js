@@ -1,17 +1,24 @@
 import { defineConfig } from 'vite';
 import legacy from '@vitejs/plugin-legacy';
-import { createHtmlPlugin } from 'vite-plugin-html'; // Изменяем импорт
+import { createHtmlPlugin } from 'vite-plugin-html';
+import { resolve } from 'path'; // Добавляем для абсолютных путей
 
 export default defineConfig({
-  root: 'src',
-  publicDir: '../public',
+  root: 'src', // Исходники в src/
+  publicDir: '../public', // Статические файлы из public/
   build: {
-    outDir: '../dist',
-    emptyOutDir: true
+    outDir: '../dist', // Результат сборки в dist/
+    emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'src/index.html'), // Абсолютный путь к index.html
+        terms: resolve(__dirname, 'src/terms.html') // Абсолютный путь к terms.html
+      }
+    }
   },
   plugins: [
-    legacy(), // Для поддержки старых браузеров, если нужно
-    createHtmlPlugin({ // Используем createHtmlPlugin
+    legacy(),
+    createHtmlPlugin({
       inject: {
         data: {
           htmlComponents: {
@@ -24,6 +31,7 @@ export default defineConfig({
           }
         }
       }
+      // Убираем entry, так как используем rollupOptions.input
     })
   ]
 });

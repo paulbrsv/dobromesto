@@ -3,6 +3,7 @@ export const attributeNames = {
   "specialty": '<img src="https://paulbrsv.github.io/goodplaces/image/coffee-pot.svg" alt="Specialty coffee" class="atr-icon">',
   "desserts": '<img src="https://paulbrsv.github.io/goodplaces/image/cake.svg" alt="Desserts" class="atr-icon">',
   "no_smoking": '<img src="https://paulbrsv.github.io/goodplaces/image/nosmoking.svg" alt="No smoking" class="atr-icon">',
+  "smoke": '<img src="https://paulbrsv.github.io/goodplaces/image/smoke.svg" alt="No smoking" class="atr-icon">',
   "pets_allowed": '<img src="https://paulbrsv.github.io/goodplaces/image/dog.svg" alt="Pet friendly" class="atr-icon">',
   "wine": '<img src="https://paulbrsv.github.io/goodplaces/image/wine.svg" alt="Wine" class="atr-icon">',
   "beer": '<img src="https://paulbrsv.github.io/goodplaces/image/beer.svg" alt="Beer" class="atr-icon">',
@@ -11,7 +12,11 @@ export const attributeNames = {
   "snacks": '<img src="https://paulbrsv.github.io/goodplaces/image/sandwich.svg" alt="Snacks" class="atr-icon">',
   "food": '<img src="https://paulbrsv.github.io/goodplaces/image/food.svg" alt="Snacks" class="atr-icon">',
   "terrace": '<img src="https://paulbrsv.github.io/goodplaces/image/terrece.svg" alt="Terrace" class="atr-icon">',
+  "ice_cream": '<img src="https://paulbrsv.github.io/goodplaces/image/ice-cream.svg" alt="Ice cream" class="atr-icon">',
   "bar": '<img src="https://paulbrsv.github.io/goodplaces/image/bar.svg" alt="Bar" class="atr-icon">',
+  "breakfast": '<img src="https://paulbrsv.github.io/goodplaces/image/breakfast.svg" alt="Bar" class="atr-icon">',
+  "cafe": '<img src="https://paulbrsv.github.io/goodplaces/image/cafe.svg" alt="Bar" class="atr-icon">',
+  "beans_sale": '<img src="https://paulbrsv.github.io/goodplaces/image/coffee-beans.svg" alt="Bar" class="atr-icon">',
   "vegan": '<img src="https://paulbrsv.github.io/goodplaces/image/vegan.svg" alt="Vegan" class="atr-icon">'
 };
 
@@ -29,7 +34,11 @@ export const filterIcons = {
   "beer": 'https://paulbrsv.github.io/goodplaces/image/beer.svg',
   "wine": 'https://paulbrsv.github.io/goodplaces/image/wine.svg',
   "bar": 'https://paulbrsv.github.io/goodplaces/image/bar.svg',
-  "vegan": 'https://paulbrsv.github.io/goodplaces/image/wine.svg'
+  "breakfast": 'https://paulbrsv.github.io/goodplaces/image/breakfast.svg',
+  "cafe": 'https://paulbrsv.github.io/goodplaces/image/cafe.svg',
+  "beans_sale": 'https://paulbrsv.github.io/goodplaces/image/coffee-beans.svg',
+  "ice_cream": 'https://paulbrsv.github.io/goodplaces/image/ice-cream.svg',
+  "vegan": 'https://paulbrsv.github.io/goodplaces/image/vegan.svg'
 };
 
 // Подсказки для фильтров
@@ -78,11 +87,27 @@ export const filterTooltips = {
     en: "Offers a selection of wines",
     ru: "Есть выбор вин"
   },
-  "Bar": {
+  "bar": {
     en: "Барное меню: пиво, коктейли, вино",
     ru: "Барное меню: пиво, коктейли, вино"
   },
-  "Vegan": {
+  "vegan": {
+    en: "Барное меню: пиво, коктейли, вино",
+    ru: "Еда для вегетарианцев"
+  },
+  "cafe": {
+    en: "Барное меню: пиво, коктейли, вино",
+    ru: "Еда для вегетарианцев"
+  },
+  "breakfast": {
+    en: "Барное меню: пиво, коктейли, вино",
+    ru: "Еда для вегетарианцев"
+  },
+  "beans_sale": {
+    en: "Барное меню: пиво, коктейли, вино",
+    ru: "Еда для вегетарианцев"
+  },
+  "ice_cream": {
     en: "Барное меню: пиво, коктейли, вино",
     ru: "Еда для вегетарианцев"
   }
@@ -141,14 +166,30 @@ export const filterNames = {
   "vegan": {
     en: "Vegan",
     ru: "Vegan"
+  },
+  "cafe": {
+    en: "Café",
+    ru: "Café"
+  },
+  "breakfast": {
+    en: "Breakfast",
+    ru: "Breakfast"
+  },
+  "beans_sale": {
+    en: "Beans sale",
+    ru: "Beans sale"
+  },
+  "ice_cream": {
+    en: "Ice cream",
+    ru: "Ice cream"
   }
 };
 
 // Тексты UI для мультиязычности
 export const uiTexts = {
   headerTitle: {
-    en: "DOBRO MESTO",
-    ru: "ДОБРО МЕСТО"
+    en: "LEPOTAMO",
+    ru: "LEPOTAMO"
   },
   visiblePlacesTitle: {
     en: "In this area",
@@ -177,7 +218,7 @@ export const mapConfig = {
   initialCoords: [45.2517, 19.8389],
   initialZoom: 14,
   tileLayerUrl: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-  attribution: '© OpenStreetMap contributors & Carto'
+  attribution: '© OpenStreetMap contributors & Carto | <a href="terms.html" target="_blank">Terms and Conditions</a>'
 };
 
 // Текущий язык

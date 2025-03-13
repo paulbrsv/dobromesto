@@ -8,6 +8,10 @@ body {
   flex-direction: column;
 }
 
+body.terms-page {
+  overflow-y: auto; /* Скроллинг внутри контейнера */
+}
+
 header {
   position: fixed;
   top: 0;
@@ -41,8 +45,8 @@ h2, h3 {
 }
 
 .filter-icon {
-  max-width: 20px;
-  max-height: 20px;
+  max-width: 18px;
+  max-height: 18px;
   margin-right: 5px;
 }
 

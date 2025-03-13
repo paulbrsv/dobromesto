@@ -6,13 +6,13 @@ import '../assets/styles/components/popup.css';
 import '../assets/styles/components/mobile.css';
 import '../assets/styles/components/modal.css';
 
-import { initFilters } from './components/filters.js';
+import { initFilters, setActiveFilters, updateFilterVisualState } from './components/filters.js';
 import { initSidebar } from './components/sidebar.js';
 import { initMap } from './components/map.js';
 import { initMobile } from './components/mobile.js';
 import { initModal } from './components/modal.js';
 import { showTooltip, hideTooltip } from './utils/helpers.js';
-import { filterTooltips, uiTexts, currentLang, filterIcons } from './data/config.js';
+import { filterTooltips, uiTexts, currentLang } from './data/config.js';
 
 import headerHtml from '../html/components/header.html?raw';
 import filtersHtml from '../html/components/filters.html?raw';
@@ -53,15 +53,25 @@ async function init() {
 
   initFilters();
   initSidebar();
-  initMap();
+  await initMap(); // Ждём карту
   initMobile();
   initModal();
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const filterParam = urlParams.get('filter');
+  if (filterParam) {
+    const filterIds = filterParam.split(',');
+    setActiveFilters(filterIds);
+  }
+
+  updateFilterVisualState(); // Синхронизируем визуальное состояние
 
   const filters = document.querySelectorAll('.filter');
   filters.forEach(filter => {
     const filterId = filter.dataset.filter;
     if (!filterId) return;
-    const tooltipText = filterTooltips[filterId][currentLang] || "Описание отсутствует";
+    const tooltipData = filterTooltips[filterId] || {};
+    const tooltipText = tooltipData[currentLang] || "Description unavailable";
     filter.addEventListener('mouseenter', () => showTooltip(filter, tooltipText));
     filter.addEventListener('mouseleave', () => hideTooltip(filter));
   });

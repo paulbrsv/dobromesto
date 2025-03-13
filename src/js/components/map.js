@@ -9,30 +9,42 @@ let markers = {};
 let placesData = [];
 
 export function initMap() {
-  map = L.map('map').setView(mapConfig.initialCoords, mapConfig.initialZoom);
-  L.tileLayer(mapConfig.tileLayerUrl, {
-    attribution: mapConfig.attribution
-  }).addTo(map);
-  map.addLayer(markerCluster);
+  return new Promise((resolve, reject) => {
+    map = L.map('map').setView(mapConfig.initialCoords, mapConfig.initialZoom);
+    L.tileLayer(mapConfig.tileLayerUrl, {
+      attribution: mapConfig.attribution
+    }).addTo(map);
+    map.addLayer(markerCluster);
 
-  fetch('/places.json')
-    .then(response => response.json())
-    .then(data => {
-      placesData = data;
-      updateMap([]);
-    })
-    .catch(error => console.error('Ошибка загрузки данных:', error));
+    fetch('/places.json')
+      .then(response => response.json())
+      .then(data => {
+        placesData = data;
+        updateMap(getActiveFilters()); // Применяем текущие фильтры
+        resolve(); // Карта и данные готовы
+      })
+      .catch(error => {
+        console.error('Ошибка загрузки данных:', error);
+        reject(error);
+      });
 
-  map.on('moveend', () => {
-    updateSidebar(placesData.filter(place => {
-      const activeFilters = getActiveFilters();
-      if (activeFilters.length === 0) return true;
-      return place.attributes.some(attr => activeFilters.includes(attr));
-    }));
+    map.on('moveend', () => {
+      if (!placesData.length) return;
+      updateSidebar(placesData.filter(place => {
+        const activeFilters = getActiveFilters();
+        if (activeFilters.length === 0) return true;
+        return place.attributes.some(attr => activeFilters.includes(attr));
+      }));
+    });
   });
 }
 
 export function updateMap(activeFilters) {
+  if (!map || !placesData.length) {
+    console.warn('Map or places data not ready yet, skipping updateMap');
+    return;
+  }
+
   markerCluster.clearLayers();
 
   const filteredPlaces = placesData.filter(place => {
@@ -98,6 +110,7 @@ export function updateMap(activeFilters) {
 function updateFilterCounts(filteredPlaces) {
   document.querySelectorAll('.filter').forEach(filter => {
     const filterId = filter.dataset.filter;
+    if (!filterId) return;
     const count = filteredPlaces.filter(place => place.attributes.includes(filterId)).length;
 
     let countElement = filter.querySelector('.filter-count');
@@ -122,7 +135,7 @@ function showMobilePlaceCard(place) {
   `;
 
   content.innerHTML = `
-    <img src="${place.image}" alt="${place.name}">
+    <img src="${place.image_VAL}" alt="${place.name}">
     <div class="popup-text">
       <div class="popup-text-content">
         <h3>${place.name}</h3>
