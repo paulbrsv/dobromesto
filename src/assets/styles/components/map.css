@@ -11,9 +11,55 @@
 /* Стили для подсвеченной метки */
 .highlighted-marker {
   line-height: 0;
+  z-index: 1000 !important;
 }
 
 /* Стили для стандартной метки */
 .default-marker {
   line-height: 0;
+}
+/* Общий стиль кластера */
+.marker-cluster {
+  background-clip: padding-box;
+  border-radius: 20px;
+}
+
+/* Маленькие кластеры */
+.marker-cluster-small {
+  background-color: rgba(0, 128, 255, 0.6); /* Синий фон */
+}
+.marker-cluster-small > div {
+  background-color: rgba(0, 102, 204, 0.6); /* Темнее внутри */
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Средние кластеры */
+.marker-cluster-medium {
+  background-color: rgba(0, 128, 255, 0.6); /* Синий фон */
+}
+.marker-cluster-medium > div {
+  background-color: rgba(0, 102, 204, 0.6); /* Темнее внутри */
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Большие кластеры */
+.marker-cluster-large {
+  background-color: rgba(0, 128, 255, 0.6); /* Синий фон */
+}
+.marker-cluster-large > div {
+  background-color: rgba(0, 102, 204, 0.6); /* Темнее внутри */
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .marker-cluster div {
+    font-size: 12px;
+  }
 }

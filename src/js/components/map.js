@@ -3,6 +3,7 @@ import { highlightMarker, resetHighlight } from '../utils/helpers.js';
 import { attributeNames, mapConfig } from '../data/config.js';
 import { getActiveFilters } from './filters.js';
 
+
 let map;
 let markerCluster = L.markerClusterGroup();
 let markers = {};
@@ -55,7 +56,7 @@ export function updateMap(activeFilters) {
   filteredPlaces.forEach(place => {
     const popupContent = `
       <div class="popup-content">
-        <img src="${place.image}" alt="${place.name}">
+        <img src="${place.image}" alt="${place.name}" loading="lazy">
         <div class="popup-text">
           <div class="popup-text-content">
             <h3>${place.name}</h3>
@@ -87,7 +88,8 @@ export function updateMap(activeFilters) {
       marker.bindPopup(popupContent, {
         autoPan: true,
         autoPanPaddingTopLeft: L.point(0, 100),
-        autoPanPaddingBottomRight: L.point(0, 50)
+        autoPanPaddingBottomRight: L.point(0, 50),
+        offset: L.point(0, -25) // Смещаем попап на 25 пикселей вверх
       });
       marker.on('popupopen', () => highlightMarker(place.name));
       marker.on('popupclose', () => resetHighlight());
@@ -135,7 +137,7 @@ function showMobilePlaceCard(place) {
   `;
 
   content.innerHTML = `
-    <img src="${place.image_VAL}" alt="${place.name}">
+    <img src="${place.image}" alt="${place.name}">
     <div class="popup-text">
       <div class="popup-text-content">
         <h3>${place.name}</h3>

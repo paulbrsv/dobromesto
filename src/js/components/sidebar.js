@@ -1,4 +1,4 @@
-import { getMap } from './map.js'; // Заменяем import { map } на getMap
+import { getMap, getMarkers } from './map.js'; // Добавляем getMarkers в импорт
 import { highlightMarker, resetHighlight } from '../utils/helpers.js';
 import { attributeNames } from '../data/config.js';
 
@@ -15,6 +15,7 @@ export function updateSidebar(filteredPlaces) {
   const map = getMap(); // Используем getMap() для получения map
   const bounds = map.getBounds();
   const mapCenter = map.getCenter();
+  const markers = getMarkers(); // Получаем объект markers через getMarkers()
 
   const sortedPlaces = filteredPlaces
     .map(place => {
@@ -30,7 +31,7 @@ export function updateSidebar(filteredPlaces) {
     const placeElement = document.createElement("div");
     placeElement.className = "place";
     placeElement.innerHTML = `
-      <img src="${place.image}" alt="${place.name}">
+      <img src="${place.image}" alt="${place.name}" loading="lazy">
       <div class="place-info">
         <h3>${place.name}</h3>
         <p>${place.shirt_description || place.description}</p>
@@ -40,11 +41,16 @@ export function updateSidebar(filteredPlaces) {
 
     placeElement.onclick = () => {
       if (window.innerWidth <= 768) {
-        map.setView([place.lat, place.lng], 17, { animate: true });
+        map.setView([place.lat, place.lng], 18, { animate: true });
         showMobilePlaceCard(place);
         closeSidebar();
         highlightMarker(place.name);
       } else {
+        const existingMarker = markers[place.name]; // Получаем существующий маркер
+        if (existingMarker) {
+          map.removeLayer(existingMarker); // Удаляем существующий маркер напрямую из карты
+        }
+
         if (tempMarker) {
           if (tempMarker.isPopupOpen()) {
             tempMarker.closePopup();
@@ -77,31 +83,33 @@ export function updateSidebar(filteredPlaces) {
         tempMarker = L.marker([place.lat, place.lng], {
           icon: L.divIcon({
             className: 'highlighted-marker',
-            html: '<img src="https://paulbrsv.github.io/goodplaces/image/mark.svg" style="width: 48px; height: 48px;">',
+            html: '<img src="https://paulbrsv.github.io/goodplaces/image/mark.svg" style="width: 48px; height: 64px;">',
             iconSize: [48, 48],
-            iconAnchor: [24, 12]
+            iconAnchor: [24, 48]
           })
         });
 
         tempMarker.bindPopup(popupContent, {
           autoPan: true,
           autoPanPaddingTopLeft: L.point(0, 100),
-          autoPanPaddingBottomRight: L.point(0, 50)
+          autoPanPaddingBottomRight: L.point(0, 50),
+          offset: L.point(0, -25) // Смещаем попап на 25 пикселей вверх
         });
 
         tempMarker.addTo(map).openPopup();
         map.setView([place.lat, place.lng], 17, { animate: true });
-
         highlightMarker(place.name);
 
         tempMarker.on('popupclose', () => {
           map.removeLayer(tempMarker);
           tempMarker = null;
+          if (existingMarker) {
+            map.addLayer(existingMarker); // Возвращаем оригинальный маркер на карту
+          }
           resetHighlight();
         });
       }
     };
-
     if (bounds.contains([place.lat, place.lng])) {
       visibleList.appendChild(placeElement);
     } else {

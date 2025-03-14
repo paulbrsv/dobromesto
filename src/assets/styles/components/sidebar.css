@@ -78,3 +78,8 @@
   margin: 0;
   padding: 0;
 }
+
+.place.highlighted {
+  background: #e0f7fa; /* Светло-голубой фон для выделения */
+  border: 2px solid #3388ff; /* Синяя рамка */
+}
