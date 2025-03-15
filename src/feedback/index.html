@@ -1,27 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback Form - Lepotamo</title>
-    
-    <link rel="stylesheet" href="/feedback/styles.css">
 
+    <link rel="stylesheet" href="/feedback/styles.css">
 </head>
 <body>
-    <!-- Подключаем шапку -->
     <header>
-          <h1>LEPOTAMO</h1>
-          <div id="filters-placeholder"></div>
-      </header>
+        <h1>LEPOTAMO</h1>
+        <div id="filters-placeholder"></div>
+    </header>
 
     <main class="feedback-container">
         <h1>Форма обратной связи</h1>
 
         <div class="feedback-type">
-            <label class="radio-btn"><input type="radio" name="type" value="add"> Добавить новое место</label>
-            <label class="radio-btn"><input type="radio" name="type" value="edit"> Внести исправления</label>
-            <label class="radio-btn"><input type="radio" name="type" value="feedback"> Отправить отзыв</label>
+            <label class="radio-btn"><input type="radio" name="type" value="add">Add new</label>
+            <label class="radio-btn"><input type="radio" name="type" value="edit">Changes request</label>
+            <label class="radio-btn"><input type="radio" name="type" value="feedback">Feedback</label>
         </div>
 
         <form id="feedback-form" class="hidden">

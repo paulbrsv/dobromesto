@@ -70,7 +70,6 @@ form {
     display: flex;
     flex-direction: column;
     gap: 20px;
-
 }
 
 .form-section {
@@ -200,12 +199,44 @@ form {
     display: none;
 }
 
+/* Мобильные стили */
 @media (max-width: 768px) {
-    .feedback-type, .filters {
+    .feedback-container, .viewer-container {
+        padding: 20px; /* Уменьшаем отступы для мобильных */
+    }
+
+    /* Только для feedback-type делаем горизонтальное расположение */
+    .feedback-type {
+        flex-direction: row; /* Горизонтально */
+        flex-wrap: nowrap; /* Не переносить */
+        justify-content: space-between; /* Равномерное распределение */
+        gap: 8px; /* Уменьшенный отступ */
+    }
+
+    .radio-btn {
+        flex: 1; /* Каждая кнопка занимает равное пространство */
+        min-width: 0; /* Позволяет сжиматься */
+        padding: 5px 5px; /* Уменьшенные отступы */
+        font-size: 12px; /* Уменьшенный шрифт */
+        text-align: center; /* Центрируем текст */
+        white-space: nowrap; /* Текст в одну строку */
+        overflow: hidden; /* Обрезаем лишнее */
+        text-overflow: ellipsis; /* Троеточие для длинного текста */
+    }
+
+    .radio-btn input[type="radio"] {
+        margin-right: 6px; /* Уменьшенный отступ перед радио */
+    }
+
+    /* Оставляем filters как было — в столбик */
+    .filters {
         flex-direction: column;
         gap: 10px;
     }
-    .radio-btn {
+
+    .filters .radio-btn {
         width: 100%;
+        padding: 10px 20px; /* Оригинальные отступы для filters */
+        font-size: 16px; /* Оригинальный шрифт для filters */
     }
 }
