@@ -15,7 +15,7 @@ export const termsText = {
     "6.1. The Website does not collect or transmit personal user data. <br>6.2. Cookies and third-party analytics services (such as Google Analytics) may be used to analyze traffic.",
     "<b>7. Final Provisions</b>",
     "7.1. Any disputes arising from the use of the Website will be resolved in accordance with the laws of the Republic of Serbia. <br>7.2. If any provision of this Agreement is deemed invalid, the remaining provisions shall remain in effect.",
-    "Contact for inquiries: [email / contact form]."
+    "Contact form for inquiries: <a href=https://lepotamo.com/feedback/>feedback</a>"
   ],
   ru: [
     "Добро пожаловать в Good Places! Эти Условия использования регулируют ваше использование нашего сайта и услуг.",
