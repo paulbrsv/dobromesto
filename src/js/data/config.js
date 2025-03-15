@@ -60,11 +60,11 @@ export const filterTooltips = {
     ru: "Открытая терраса для отдыха на свежем воздухе"
   },
   "coffee_shop": {
-    en: "Regular coffee shop with basic drink options",
+    en: "Coffee shop with basic drink options",
     ru: "Обычная кофейня с базовым выбором напитков"
   },
   "specialty": {
-    en: "Coffee shop with unique blends and specialty drinks",
+    en: "Specialty beans and alternative coffee are offered",
     ru: "Кофейня с уникальными сортами кофе и авторскими напитками"
   },
   "food": {
@@ -72,7 +72,7 @@ export const filterTooltips = {
     ru: "Полноценное меню с горячими блюдами"
   },
   "snacks": {
-    en: "Light snacks to accompany drinks",
+    en: "Light snacks or sandwiches",
     ru: "Лёгкие закуски к напиткам"
   },
   "desserts": {
@@ -88,28 +88,28 @@ export const filterTooltips = {
     ru: "Есть выбор вин"
   },
   "bar": {
-    en: "Барное меню: пиво, коктейли, вино",
-    ru: "Барное меню: пиво, коктейли, вино"
+    en: "Regular bar with basic drink and menu options",
+    ru: "Regular bar with basic drink and menu options"
   },
   "vegan": {
-    en: "Барное меню: пиво, коктейли, вино",
-    ru: "Еда для вегетарианцев"
+    en: "Full vegan menu or there are vegetarian options",
+    ru: "Full vegan menu or there are vegetarian options"
   },
   "cafe": {
-    en: "Барное меню: пиво, коктейли, вино",
-    ru: "Еда для вегетарианцев"
+    en: "Regular cafe with basic drink and menu options",
+    ru: "Regular cafe with basic drink and menu options"
   },
   "breakfast": {
-    en: "Барное меню: пиво, коктейли, вино",
-    ru: "Еда для вегетарианцев"
+    en: "Selection of breakfasts in the menu",
+    ru: "Selection of breakfasts in the menu"
   },
   "beans_sale": {
-    en: "Барное меню: пиво, коктейли, вино",
-    ru: "Еда для вегетарианцев"
+    en: "The coffee shop sells coffee beans",
+    ru: "The coffee shop sells coffee beansв"
   },
   "ice_cream": {
-    en: "Барное меню: пиво, коктейли, вино",
-    ru: "Еда для вегетарианцев"
+    en: "A wide selection of ice cream",
+    ru: "A wide selection of ice cream"
   }
 };
 
@@ -218,7 +218,7 @@ export const mapConfig = {
   initialCoords: [45.2517, 19.8389],
   initialZoom: 14,
   tileLayerUrl: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-  attribution: '© OpenStreetMap contributors & Carto | <a href="terms.html" target="_blank">Terms and Conditions</a>'
+  attribution: '© OpenStreetMap | <a href="terms.html" target="_blank">Terms and Conditions</a>'
 };
 
 // Текущий язык
