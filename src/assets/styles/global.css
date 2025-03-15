@@ -27,6 +27,18 @@ header {
   z-index: 1000;
 }
 
+.header-link {
+  text-decoration: none; /* Убирает подчёркивание */
+  color: inherit; /* Наследует цвет текста от родителя */
+}
+
+.header-link h1 {
+  margin: 0; /* Сохраняем оригинальные отступы */
+  padding: 0px 4px; /* Сохраняем оригинальные внутренние отступы */
+}
+
+
+
 h1 {
   font-size: 20px;
   font-weight: bold;

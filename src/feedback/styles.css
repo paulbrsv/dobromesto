@@ -5,6 +5,7 @@ body {
     font-family: 'Inter', sans-serif; /* Современный шрифт */
     background: #f5f7fa;
     color: #333;
+
 }
 
 main {
@@ -25,10 +26,12 @@ header {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     padding: 30px;
     transition: all 0.3s ease;
+    margin-top: 125px;
+
 }
 
-h1 {
-    font-size: 2rem;
+.feedback-container h1 {
+    font-size: 1rem;
     margin-bottom: 30px;
     color: #1a1a1a;
     font-weight: 700;
@@ -203,6 +206,7 @@ form {
 @media (max-width: 768px) {
     .feedback-container, .viewer-container {
         padding: 20px; /* Уменьшаем отступы для мобильных */
+        margin-right: 13%;
     }
 
     /* Только для feedback-type делаем горизонтальное расположение */
@@ -214,9 +218,9 @@ form {
     }
 
     .radio-btn {
-        flex: 1; /* Каждая кнопка занимает равное пространство */
+       /* Каждая кнопка занимает равное пространство */
         min-width: 0; /* Позволяет сжиматься */
-        padding: 5px 5px; /* Уменьшенные отступы */
+        padding: 5px 10px 5px 5px; /* Уменьшенные отступы */
         font-size: 12px; /* Уменьшенный шрифт */
         text-align: center; /* Центрируем текст */
         white-space: nowrap; /* Текст в одну строку */
