@@ -45,7 +45,7 @@ async function init() {
   const moreFiltersBtn = document.querySelector('.more-filters-btn');
   moreFiltersBtn.innerHTML = '';
   const moreIcon = document.createElement('img');
-  moreIcon.src = 'https://paulbrsv.github.io/goodplaces/image/more.svg';
+  moreIcon.src = '/images/more.svg';
   moreIcon.alt = uiTexts.moreFilters[currentLang];
   moreIcon.className = 'filter-icon';
   moreFiltersBtn.appendChild(moreIcon);
@@ -77,4 +77,19 @@ async function init() {
   });
 }
 
+// Инициализация приложения при загрузке DOM
 document.addEventListener('DOMContentLoaded', init);
+
+// Регистрация Service Worker после полной загрузки страницы
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('/sw.js')
+      .then(registration => {
+        console.log('Service Worker зарегистрирован:', registration.scope);
+      })
+      .catch(error => {
+        console.error('Ошибка регистрации Service Worker:', error);
+      });
+  });
+}

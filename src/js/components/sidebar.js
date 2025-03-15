@@ -70,10 +70,10 @@ export function updateSidebar(filteredPlaces) {
               </div>
               <div class="popup-links">
                 <a href="${place.instagram}" target="_blank">
-                  <img src="https://paulbrsv.github.io/goodplaces/image/instagram.svg" alt="Instagram" class="icon">
+                  <img src="/images/instagram.svg" alt="Instagram" class="icon">
                 </a>
                 <a href="${place.maps_url}" target="_blank">
-                  <img src="https://paulbrsv.github.io/goodplaces/image/google.svg" alt="Google Maps" class="icon">
+                  <img src="/images/google.svg" alt="Google Maps" class="icon">
                 </a>
               </div>
             </div>
@@ -83,7 +83,7 @@ export function updateSidebar(filteredPlaces) {
         tempMarker = L.marker([place.lat, place.lng], {
           icon: L.divIcon({
             className: 'highlighted-marker',
-            html: '<img src="https://paulbrsv.github.io/goodplaces/image/mark.svg" style="width: 48px; height: 64px;">',
+            html: '<img src="/images/mark.svg" style="width: 48px; height: 64px;">',
             iconSize: [48, 48],
             iconAnchor: [24, 48]
           })
@@ -137,8 +137,8 @@ function showMobilePlaceCard(place) {
         <p>${place.description}</p>
       </div>
       <div class="popup-links">
-        <a href="${place.instagram}" target="_blank"><img src="https://paulbrsv.github.io/goodplaces/image/instagram.svg" alt="Instagram" class="icon"></a>
-        <a href="${place.maps_url}" target="_blank"><img src="https://paulbrsv.github.io/goodplaces/image/google.svg" alt="Google Maps" class="icon"></a>
+        <a href="${place.instagram}" target="_blank"><img src="/images/instagram.svg" alt="Instagram" class="icon"></a>
+        <a href="${place.maps_url}" target="_blank"><img src="/images/google.svg" alt="Google Maps" class="icon"></a>
       </div>
     </div>
   `;

@@ -11,7 +11,7 @@ export function highlightMarker(placeName) {
     const marker = markers[placeName];
     const highlightedIcon = L.divIcon({
       className: 'highlighted-marker',
-      html: '<img src="https://paulbrsv.github.io/goodplaces/image/mark.svg" style="width: 48px; height: 64px;">',
+      html: '<img src="/images/mark.svg" style="width: 48px; height: 64px;">',
       iconSize: [48, 48],
       iconAnchor: [24, 48]
     });

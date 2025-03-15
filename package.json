@@ -1,6 +1,7 @@
 {
   "name": "coffee-map",
   "version": "1.0.0",
+  "type": "module",
   "description": "Interactive coffee shop map",
   "main": "src/js/main.js",
   "scripts": {
@@ -11,7 +12,8 @@
   "devDependencies": {
     "@vitejs/plugin-legacy": "^5.4.2",
     "vite": "^5.4.14",
-    "vite-plugin-html": "^3.2.2"
+    "vite-plugin-html": "^3.2.2",
+    "vite-plugin-static-copy": "^2.3.0"
   },
   "repository": {
     "type": "git",

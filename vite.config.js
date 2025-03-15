@@ -1,18 +1,19 @@
 import { defineConfig } from 'vite';
 import legacy from '@vitejs/plugin-legacy';
 import { createHtmlPlugin } from 'vite-plugin-html';
-import { resolve } from 'path'; // Добавляем для абсолютных путей
+import { resolve } from 'path';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
-  root: 'src', // Исходники в src/
-  publicDir: '../public', // Статические файлы из public/
+  root: 'src',
+  publicDir: '../public',
   build: {
-    outDir: '../dist', // Результат сборки в dist/
+    outDir: '../dist',
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'src/index.html'), // Абсолютный путь к index.html
-        terms: resolve(__dirname, 'src/terms.html') // Абсолютный путь к terms.html
+        main: resolve(__dirname, 'src/index.html'),
+        terms: resolve(__dirname, 'src/terms.html')
       }
     }
   },
@@ -31,7 +32,14 @@ export default defineConfig({
           }
         }
       }
-      // Убираем entry, так как используем rollupOptions.input
+    }),
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'sw.js',
+          dest: ''
+        }
+      ]
     })
   ]
 });

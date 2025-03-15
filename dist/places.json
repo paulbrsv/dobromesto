@@ -8,7 +8,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/biciklana23\/",
         "maps_url": "https:\/\/goo.gl\/maps\/cCWtgfoQ8YfxmLwS7",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/biciklana.jpg",
+        "image": "/images/biciklana.jpg",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -29,7 +29,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/lebolns\/",
         "maps_url": "https:\/\/goo.gl\/maps\/XWRaLduEZV8YgXcw5",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/lebol.jpg",
+        "image": "/images/lebol.jpg",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -50,7 +50,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/sweetandgreen.rs\/",
         "maps_url": "https:\/\/goo.gl\/maps\/Ffq17dbGzLRgUnvAA",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/sweetgreen.jpg",
+        "image": "/images/sweetgreen.jpg",
         "attributes": [
             "no_smoking",
             "food",
@@ -68,7 +68,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/vegeveganorganicfood",
         "maps_url": "https:\/\/goo.gl\/maps\/DSHs3XPzWqYeJ2Si8",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/vegevegan.jpg",
+        "image": "/images/vegevegan.jpg",
         "attributes": [
             "no_smoking",
             "food",
@@ -87,7 +87,7 @@
         "link": "",
         "instagram": "https:\/\/www.facebook.com\/organicfactory.novisad\/",
         "maps_url": "https:\/\/goo.gl\/maps\/U6s8M6K2w5jzdrYJ6",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/organicfactory.jpg",
+        "image": "/images/organicfactory.jpg",
         "attributes": [
             "no_smoking",
             "food",
@@ -105,7 +105,7 @@
         "link": "https:\/\/ananda.rs\/",
         "instagram": "https:\/\/www.instagram.com\/ananda_vegan_restaurant\/",
         "maps_url": "https:\/\/goo.gl\/maps\/xfHhYgozHhqJBpwRA",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/ananda.jpg",
+        "image": "/images/ananda.jpg",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -125,7 +125,7 @@
         "link": "https:\/\/bulevarbooks.com\/",
         "instagram": "https:\/\/www.instagram.com\/bulevarbooks\/",
         "maps_url": "https:\/\/goo.gl\/maps\/nU2SUP9ScpwjAyzk7",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/bulevar.jpg",
+        "image": "/images/bulevar.jpg",
         "attributes": [
             "no_smoking",
             "coffee_shop"
@@ -141,7 +141,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/cafe_gabby\/",
         "maps_url": "https:\/\/goo.gl\/maps\/X9KGHUybdjUT7PAKA",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/gabby.jpg",
+        "image": "/images/gabby.jpg",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -162,7 +162,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/crniovan\/",
         "maps_url": "https:\/\/goo.gl\/maps\/jMF1AGERLYxAh9Lt6",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/crniovan.jpg",
+        "image": "/images/crniovan.jpg",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -180,7 +180,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/freshfoodcaffe021\/",
         "maps_url": "https:\/\/goo.gl\/maps\/ccJgtABKyLaFTCY27",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/freshfood.jpg",
+        "image": "/images/freshfood.jpg",
         "attributes": [
             "no_smoking",
             "food"
@@ -196,7 +196,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/secernema\/",
         "maps_url": "https:\/\/goo.gl\/maps\/j2fUkvcEVqASgYWR8",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/secernema.jpg",
+        "image": "/images/secernema.jpg",
         "attributes": [
             "no_smoking",
             "coffee_shop",
@@ -215,7 +215,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/secernema\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/b5WSeH2Tuwb3bdni6",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/secernema.jpg",
+        "image": "/images/secernema.jpg",
         "attributes": [
             "desserts",
             "vegan"
@@ -231,7 +231,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/_izlet",
         "maps_url": "https:\/\/goo.gl\/maps\/tTq27yBpApmx4cDr9",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/izlet.png",
+        "image": "/images/izlet.png",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -251,7 +251,7 @@
         "link": "https:\/\/tosterbar.rs\/",
         "instagram": "https:\/\/www.instagram.com\/tosterbar\/",
         "maps_url": "https:\/\/goo.gl\/maps\/mpJFeVnAKbA3pVXv9",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/toster.jpg",
+        "image": "/images/toster.jpg",
         "attributes": [
             "no_smoking",
             "food",
@@ -268,7 +268,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/freeshkakafa\/",
         "maps_url": "https:\/\/goo.gl\/maps\/PFdDrw9dnbdbnnJ6A",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/freeshka.jpg",
+        "image": "/images/freeshka.jpg",
         "attributes": [
             "no_smoking",
             "coffee_shop"
@@ -284,7 +284,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/coffeeculture32",
         "maps_url": "https:\/\/goo.gl\/maps\/BdzhqNcV7bDHJC6U8",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/block32.jpg",
+        "image": "/images/block32.jpg",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -303,7 +303,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/macchiatofax\/",
         "maps_url": "https:\/\/goo.gl\/maps\/Z7eFs4x52LEv8WuH6",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/fax.jpg",
+        "image": "/images/fax.jpg",
         "attributes": [
             "smoke",
             "terrace",
@@ -320,7 +320,7 @@
         "link": "https:\/\/zenitbooks.com\/",
         "instagram": "",
         "maps_url": "https:\/\/goo.gl\/maps\/xk9spuW9uGgq2nuG9",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/zenit.webp",
+        "image": "/images/zenit.webp",
         "attributes": [
             "smoke",
             "pets_allowed",
@@ -339,7 +339,7 @@
         "link": "https:\/\/coffeeride.day\/",
         "instagram": "https:\/\/www.instagram.com\/CoffeeRide.ns",
         "maps_url": "https:\/\/maps.app.goo.gl\/8RX4Sr7XJ8sQdZ2A7",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/cofferide.jpg",
+        "image": "/images/cofferide.jpg",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -357,7 +357,7 @@
         "link": "",
         "instagram": "https:\/\/instagram.com\/urbano_coffee",
         "maps_url": "https:\/\/maps.app.goo.gl\/dmLACj19WzFCnq3J7",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/urbano.jpg",
+        "image": "/images/urbano.jpg",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -375,7 +375,7 @@
         "link": "",
         "instagram": "https:\/\/instagram.com\/pendzer_coffee",
         "maps_url": "https:\/\/maps.app.goo.gl\/1BrGKzswxXEgimK8A",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/pendzer.png",
+        "image": "/images/pendzer.png",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -395,7 +395,7 @@
         "link": "",
         "instagram": "https:\/\/instagram.com\/kafetea_coffee",
         "maps_url": "https:\/\/maps.app.goo.gl\/kNhFBFpAPjoPmntm7",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/kafetea.png",
+        "image": "/images/kafetea.png",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -413,7 +413,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/brunobar.rs\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/cKjmyUCiW44XKJK37",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/bruno.png",
+        "image": "/images/bruno.png",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -432,7 +432,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/teplica.rs\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/cekHQ4FHxuGxsfwC7",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/teplica.jpg",
+        "image": "/images/teplica.jpg",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -451,7 +451,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/martinkafa\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/nmmNdAPa7Zv3snmq6",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/martin1.jpg",
+        "image": "/images/martin1.jpg",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -469,7 +469,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/martinkafa\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/tNQfAYjoGeaG6hA18",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/martin1.jpg",
+        "image": "/images/martin1.jpg",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -487,7 +487,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/_izlet\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/w4sXGZvY5YRrJ9z46",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/izlet.png",
+        "image": "/images/izlet.png",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -506,7 +506,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/kofilin.srbija\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/tMUESzqqwbSUKAqQA",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/kofilin.png",
+        "image": "/images/kofilin.png",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -525,7 +525,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/coffeebara.srbija\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/vJ2KQQZzo16JBysw7",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/coffeebara.png",
+        "image": "/images/coffeebara.png",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -544,7 +544,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/coffeebara.srbija\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/3VoggdtrDjNW54ja8",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/coffeebara.png",
+        "image": "/images/coffeebara.png",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -563,7 +563,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/tischler_store\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/Lg2A4sGCbzJWDgkG7",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/tischler.png",
+        "image": "/images/tischler.png",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -582,7 +582,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/mlin_coffeeandteashop\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/u1UamMj3QNX9yFJR6",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/mlin.jpg",
+        "image": "/images/mlin.jpg",
         "attributes": [
             "pets_allowed",
             "bar",
@@ -601,7 +601,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/carolijapecivakafe\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/kMm8dU8M2Q1eoHrh9",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/carolia.png",
+        "image": "/images/carolia.png",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -619,7 +619,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/seherezada.ns23\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/8p3wHBBZEG6v2FVK6",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/seherezada.png",
+        "image": "/images/seherezada.png",
         "attributes": [
             "no_smoking",
             "coffee_shop",
@@ -638,7 +638,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/rozbrat\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/yFRuZP4eG8PxFGLs9",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/rozbrat.jpg",
+        "image": "/images/rozbrat.jpg",
         "attributes": [
             "no_smoking",
             "bar",
@@ -655,7 +655,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/fikacoffee.rs\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/zMdk6NaKKB4YyNj77",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/fika.png",
+        "image": "/images/fika.png",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -673,7 +673,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/grnhs.serbia\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/1bLJ2WpqaqzNvNut5",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/green1.png",
+        "image": "/images/green1.png",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -691,7 +691,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/le_klok_bistro",
         "maps_url": "https:\/\/maps.app.goo.gl\/7dmuJRkqJkqS42Hq5",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/leklok.jpg",
+        "image": "/images/leklok.jpg",
         "attributes": [
             "food",
             "terrace"
@@ -707,7 +707,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/raf_cafe_\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/fbka8x9bkm87XbqZA",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/raf.png",
+        "image": "/images/raf.png",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -726,7 +726,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/petrus_ns\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/3rMC5BuvBJCz1XwE8",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/petrus.png",
+        "image": "/images/petrus.png",
         "attributes": [
             "smoke",
             "bar",
@@ -747,7 +747,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/tihotoplo\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/BEC1Dc4TnqxpUkV1A",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/tiho.png",
+        "image": "/images/tiho.png",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -766,7 +766,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/dragomije.coffee",
         "maps_url": "https:\/\/maps.app.goo.gl\/UuyWaz78vCfUre4a6",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/drago.png",
+        "image": "/images/drago.png",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -785,7 +785,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/maybe_coffee.rs",
         "maps_url": "https:\/\/maps.app.goo.gl\/omLC395XcpGCkXR4A",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/maybe.png",
+        "image": "/images/maybe.png",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -803,7 +803,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/kafeterijabg\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/6WV5LERaDgSCKGLGA",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/kafeteria.jpeg",
+        "image": "/images/kafeteria.jpeg",
         "attributes": [
             "smoke",
             "pets_allowed",
@@ -826,7 +826,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/kafeterijabg\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/6WV5LERaDgSCKGLGA",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/kafeteria.jpeg",
+        "image": "/images/kafeteria.jpeg",
         "attributes": [
             "smoke",
             "pets_allowed",
@@ -849,7 +849,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/albysuperstore.rs",
         "maps_url": "https:\/\/maps.app.goo.gl\/AeinU44YWgfWsifr8",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/alby.png",
+        "image": "/images/alby.png",
         "attributes": [
             "no_smoking",
             "desserts",
@@ -867,7 +867,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/placetosoc\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/gCvt4bgDrYCF1KKV6",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/soc.png",
+        "image": "/images/soc.png",
         "attributes": [
             "coffee_shop",
             "terrace",
@@ -885,7 +885,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/malaradionicakafens",
         "maps_url": "https:\/\/maps.app.goo.gl\/ggnp96Km4Z7AEXgi8",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/radionica.png",
+        "image": "/images/radionica.png",
         "attributes": [
             "pets_allowed",
             "coffee_shop",
@@ -903,7 +903,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/freeshkakafa\/",
         "maps_url": "https:\/\/goo.gl\/maps\/PFdDrw9dnbdbnnJ6A",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/freeshka.jpg",
+        "image": "/images/freeshka.jpg",
         "attributes": [
             "no_smoking",
             "coffee_shop"
@@ -919,7 +919,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/ladolcefiore_cafe",
         "maps_url": "https:\/\/maps.app.goo.gl\/GT1ra6fM3uwBsSSH8",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/ladorce.png",
+        "image": "/images/ladorce.png",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -938,7 +938,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/mandarin_novi_sad",
         "maps_url": "https:\/\/maps.app.goo.gl\/TaC4LityzwjC2D4r7",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/mandarin.png",
+        "image": "/images/mandarin.png",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -956,7 +956,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/nomadthebar",
         "maps_url": "https:\/\/maps.app.goo.gl\/AfuMCkMj6FwoUkQt5",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/nomad.png",
+        "image": "/images/nomad.png",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -975,7 +975,7 @@
         "link": "",
         "instagram": "",
         "maps_url": "https:\/\/maps.app.goo.gl\/etJWtzTMcTGto72G6",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/hedonist.png",
+        "image": "/images/hedonist.png",
         "attributes": [
             "no_smoking",
             "bar",
@@ -993,7 +993,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/sealkia_tea\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/BtfmjobufnQA6kUM7",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/sealtea.png",
+        "image": "/images/sealtea.png",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -1011,7 +1011,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/grnhs.serbia\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/L81fkC77jSFvXLdQ9",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/green2.png",
+        "image": "/images/green2.png",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -1029,7 +1029,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/filipenkocoffeebar\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/7WSUJSrEbvk2oJ9V8",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/filipenko.png",
+        "image": "/images/filipenko.png",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -1050,7 +1050,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/coffeehousetulip\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/tdZFsBFzC9SpsP5P9",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/tulip.png",
+        "image": "/images/tulip.png",
         "attributes": [
             "no_smoking",
             "pets_allowed",
@@ -1068,7 +1068,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/tramontana_novisad",
         "maps_url": "https:\/\/maps.app.goo.gl\/nRbNJSsBGQ2e4AdVA",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/tramontana.png",
+        "image": "/images/tramontana.png",
         "attributes": [
             "no_smoking",
             "bar",
@@ -1086,7 +1086,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/radiocafens\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/RJvWudKZ7zV8mg1w6",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/radio.png",
+        "image": "/images/radio.png",
         "attributes": [
             "pets_allowed",
             "bar",
@@ -1104,7 +1104,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/bistro.vremeplov\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/Ly98H9dBEEFWT2mLA",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/vremeplov.jpg",
+        "image": "/images/vremeplov.jpg",
         "attributes": [
             "pets_allowed",
             "bar",
@@ -1125,7 +1125,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/velvet_novi_sad\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/53Z27uGCXKf5FYALA",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/velvet.png",
+        "image": "/images/velvet.png",
         "attributes": [
             "bar",
             "cafe",
@@ -1144,7 +1144,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/loft_coffee_food_bar\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/FqrwXJwe6AcXH4oB6",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/loftgarden.png",
+        "image": "/images/loftgarden.png",
         "attributes": [
             "pets_allowed",
             "bar",
@@ -1163,7 +1163,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/jasmin_a_maslina\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/GL6e6HU37oKKWab98",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/jasmin.png",
+        "image": "/images/jasmin.png",
         "attributes": [
             "no_smoking",
             "food"
@@ -1179,7 +1179,7 @@
         "link": "",
         "instagram": "https:\/\/www.instagram.com\/plantpower.rs\/",
         "maps_url": "https:\/\/maps.app.goo.gl\/XtM5XDckCCZiZLiU9",
-        "image": "https:\/\/paulbrsv.github.io\/goodplaces\/image\/plant.png",
+        "image": "/images/plant.png",
         "attributes": [
             "no_smoking",
             "pets_allowed",

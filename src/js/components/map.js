@@ -65,10 +65,10 @@ export function updateMap(activeFilters) {
           </div>
           <div class="popup-links">
             <a href="${place.instagram}" target="_blank">
-              <img src="https://paulbrsv.github.io/goodplaces/image/instagram.svg" alt="Instagram" class="icon">
+              <img src="/images/instagram.svg" alt="Instagram" class="icon">
             </a>
             <a href="${place.maps_url}" target="_blank">
-              <img src="https://paulbrsv.github.io/goodplaces/image/google.svg" alt="Google Maps" class="icon">
+              <img src="/images/google.svg" alt="Google Maps" class="icon">
             </a>
           </div>
         </div>
@@ -144,8 +144,8 @@ function showMobilePlaceCard(place) {
         <p>${place.description}</p>
       </div>
       <div class="popup-links">
-        <a href="${place.instagram}" target="_blank"><img src="https://paulbrsv.github.io/goodplaces/image/instagram.svg" alt="Instagram" class="icon"></a>
-        <a href="${place.maps_url}" target="_blank"><img src="https://paulbrsv.github.io/goodplaces/image/google.svg" alt="Google Maps" class="icon"></a>
+        <a href="${place.instagram}" target="_blank"><img src="/images/instagram.svg" alt="Instagram" class="icon"></a>
+        <a href="${place.maps_url}" target="_blank"><img src="/images/google.svg" alt="Google Maps" class="icon"></a>
       </div>
     </div>
   `;
