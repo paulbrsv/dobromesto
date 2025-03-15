@@ -206,7 +206,8 @@ form {
 @media (max-width: 768px) {
     .feedback-container, .viewer-container {
         padding: 10px; /* Уменьшаем отступы для мобильных */
-      
+        margin-top: 50px;
+
     }
 
     /* Только для feedback-type делаем горизонтальное расположение */
