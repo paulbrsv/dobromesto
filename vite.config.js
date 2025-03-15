@@ -13,7 +13,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/index.html'),
-        terms: resolve(__dirname, 'src/terms.html')
+        terms: resolve(__dirname, 'src/terms.html'),
+        feedback: resolve(__dirname, 'src/feedback/index.html'), // Добавляем форму
+        viewer: resolve(__dirname, 'src/feedback/viewer.html'),   // Добавляем просмотр
       }
     }
   },
@@ -38,6 +40,14 @@ export default defineConfig({
         {
           src: 'sw.js',
           dest: ''
+        },
+        {
+          src: 'feedback/save.php', // Копируем PHP
+          dest: 'feedback'
+        },
+        {
+          src: 'feedback/feedback.json', // Копируем JSON
+          dest: 'feedback'
         }
       ]
     })
