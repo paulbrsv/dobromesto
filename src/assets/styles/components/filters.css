@@ -63,7 +63,7 @@
 .filter-divider {
   width: 2px;
   background-color: #ccc;
-  height: 65px; /* Фиксируем высоту для видимости */
+  height: 50px; /* Фиксируем высоту для видимости */
   margin: 0 5px; /* Добавляем отступы для пространства */
   align-self: center; /* Центрируем вертикально */
 }
