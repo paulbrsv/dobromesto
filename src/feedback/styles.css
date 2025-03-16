@@ -19,6 +19,11 @@ header {
     /* Если нужны дополнительные стили для адаптации */
 }
 
+body.feedback-page {
+  overflow-y: auto; /* Скроллинг внутри контейнера */
+}
+
+
 /* Контейнер формы */
 .feedback-container, .viewer-container {
     background: white;
@@ -27,6 +32,7 @@ header {
     padding: 30px;
     transition: all 0.3s ease;
     margin-top: 125px;
+    max-width: 500px;
 
 }
 
@@ -166,7 +172,8 @@ form {
 }
 
 .place-info img {
-    max-width: 120px;
+    max-width: 80px;
+    max-height: 120px;
     border-radius: 8px;
 }
 
@@ -207,6 +214,7 @@ form {
     .feedback-container, .viewer-container {
         padding: 10px; /* Уменьшаем отступы для мобильных */
         margin-top: 50px;
+        max-width: 320px;
 
     }
 
