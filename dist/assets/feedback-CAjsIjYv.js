@@ -1,0 +1,1 @@
+import"./header-C4J9Mb-h.js";/* empty css               */import"./terms-B5NeuF_2.js";function t(){import.meta.url,import("_").catch(()=>1),async function*(){}().next()}export{t as __vite_legacy_guard};
