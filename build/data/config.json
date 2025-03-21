@@ -162,8 +162,8 @@
       { "name": "Beograd (Soon)", "disabled": true }
     ],
     "navLinks": [
-      { "label": "Add new place", "href": "#" },
-      { "label": "Feedback", "href": "#" }
+      { "label": "Add new place", "href": "/feedback/" },
+      { "label": "Feedback", "href": "/feedback/" }
     ],
     "buttonLabels": {
       "showList": "Show list",
