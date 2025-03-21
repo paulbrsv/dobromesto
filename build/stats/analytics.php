@@ -125,8 +125,11 @@ try {
         $visitorId = generateVisitorId();
         $ipAddress = getIpAddress();
         $deviceInfo = getDeviceInfo();
-        $pageUrl = $_SERVER['HTTP_REFERER'] ?? $_REQUEST['page'] ?? 'Unknown';
-        $referrer = $_SERVER['HTTP_REFERER'] ?? $_REQUEST['referrer'] ?? '';
+        // Получаем URL текущей страницы (куда перешел пользователь)
+$pageUrl = isset($_REQUEST['page']) ? $_REQUEST['page'] : 'Unknown';
+
+// Получаем источник (откуда пришел пользователь)
+$referrer = $_SERVER['HTTP_REFERER'] ?? $_REQUEST['referrer'] ?? '';
 
         // Если URL страницы неизвестен и это GET-запрос, пытаемся получить его из параметров
         if ($pageUrl === 'Unknown' && isset($_GET['page'])) {
