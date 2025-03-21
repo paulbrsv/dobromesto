@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X60869L0D6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X60869L0D6');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form - Lepotamo</title>
+
+    <link rel="stylesheet" href="./styles.css">
+    <script>
+(function() {
+    var img = new Image();
+    img.src = '/stats/analytics.php?page=' + encodeURIComponent(window.location.href) + '&referrer=' + encodeURIComponent(document.referrer) + '&t=' + new Date().getTime();
+    img.style.display = 'none';
+    document.body.appendChild(img);
+})();
+</script>
+</head>
+<body class="feedback-page">
+  <header class="sc-VHjGu cujCnN">
+    <div class="sc-gnOvAp frWVfW">
+      <div class="sc-dQkurY bEBiHu">
+        <h1><a href="/">Places</a></h1>
+        <select class="sc-glJfXD lasLJq">
+          <option>Novi Sad</option>
+          <option disabled="">Beograd (Soon)</option>
+        </select></div>
+        <button class="sc-dOfePm dcgZpi">☰</button>
+      </div>
+    </header>
+
+    <main class="feedback-container">
+        <h1>Feedback form</h1>
+
+        <div class="feedback-type">
+            <label class="radio-btn"><input type="radio" name="type" value="add">Add new</label>
+            <label class="radio-btn"><input type="radio" name="type" value="edit">Changes request</label>
+            <label class="radio-btn"><input type="radio" name="type" value="feedback">Feedback</label>
+        </div>
+
+        <form id="feedback-form" class="hidden">
+            <!-- Add New Place Form -->
+            <div class="form-section add-form hidden">
+                <input type="text" name="name" placeholder="Place name" class="input-field">
+                <textarea name="description" placeholder="Description" class="textarea-field"></textarea>
+                <input type="url" name="maps_url" placeholder="Link to Google Maps" class="input-field">
+                <label class="checkbox"><input type="checkbox" name="is_owner"> I am the owner</label>
+                <input type="email" name="contact" class="contact-field input-field hidden" placeholder="Your email" disabled>
+            </div>
+
+            <!-- Edit Place Form -->
+            <div class="form-section edit-form hidden">
+                <select name="place" class="select-field">
+                    <option value="">Select place</option>
+                </select>
+                <div class="place-info hidden"></div>
+                <textarea name="suggestion" placeholder="Proposed changes" class="textarea-field"></textarea>
+                <label class="checkbox"><input type="checkbox" name="is_owner"> I am the owner</label>
+                <input type="email" name="contact" class="contact-field input-field hidden" placeholder="Your email" disabled>
+            </div>
+
+            <!-- Feedback Form -->
+            <div class="form-section feedback-form hidden">
+                <textarea name="message" placeholder="Your feedback or question" class="textarea-field"></textarea>
+                <input type="email" name="contact" placeholder="Your email address (optional)" class="input-field">
+            </div>
+
+            <button type="submit" class="submit-btn">Send</button>
+        </form>
+
+        <div id="success-message" class="hidden success-message">
+            <p>Your request has been successfully sent and will be processed soon!</p>
+        </div>
+    </main>
+    <script type="module" src="/js/terms.js"></script> <!-- Исправленный путь -->
+    <script type="text/javascript" src="./feedback.js"></script>
+</body>
+</html>

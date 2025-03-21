@@ -1,0 +1,35 @@
+[
+    {
+        "type": "add",
+        "timestamp": "2025-03-15T19:47:52.000Z",
+        "checked": false,
+        "name": "sdf",
+        "description": "sdfs",
+        "maps_url": "http:\/\/localhost:8000\/",
+        "is_owner": false
+    },
+    {
+        "type": "edit",
+        "timestamp": "2025-03-15T19:50:39.849Z",
+        "checked": false,
+        "place": "Kafeterija Kofilin",
+        "suggestion": "ыаывававав",
+        "is_owner": false
+    },
+    {
+        "type": "add",
+        "timestamp": "2025-03-21T08:10:19.483Z",
+        "checked": false,
+        "name": "sdfsf",
+        "description": "sfsdf",
+        "maps_url": "http:\/\/localhost:8000\/",
+        "is_owner": false
+    },
+    {
+        "type": "feedback",
+        "timestamp": "2025-03-21T08:27:40.278Z",
+        "checked": false,
+        "message": "ssfsfsdsd",
+        "contact": null
+    }
+]
