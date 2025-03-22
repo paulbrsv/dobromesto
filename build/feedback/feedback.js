@@ -16,8 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Добавляем required только для активной секции
         if (activeSection === 'add') {
-            addForm.querySelector('input[name="name"]').setAttribute('required', '');
-            addForm.querySelector('textarea[name="description"]').setAttribute('required', '');
             addForm.querySelector('input[name="maps_url"]').setAttribute('required', '');
             const isOwner = addForm.querySelector('input[name="is_owner"]').checked;
             if (isOwner) {

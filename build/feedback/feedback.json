@@ -31,5 +31,14 @@
         "checked": false,
         "message": "ssfsfsdsd",
         "contact": null
+    },
+    {
+        "type": "add",
+        "timestamp": "2025-03-22T20:26:43.971Z",
+        "checked": false,
+        "name": "",
+        "description": "",
+        "maps_url": "http:\/\/localhost:8000\/",
+        "is_owner": false
     }
 ]
