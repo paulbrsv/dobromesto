@@ -4,16 +4,6 @@
  */
 
 /**
- * Get project root directory
- *
- * @return string Project root directory with trailing slash
- */
-function get_project_root() {
-    // This will return the path to the 'public' directory
-    return realpath(__DIR__ . '/../../') . '/';
-}
-
-/**
  * Get admin configuration
  *
  * @return array Admin config with username and password hash
@@ -63,9 +53,7 @@ function require_auth() {
  * @return array Places data
  */
 function load_places() {
-    $project_root = get_project_root();
-    $places_file = $project_root . 'data/places.json';
-
+    $places_file = '../data/places.json';
     if (!file_exists($places_file)) {
         return [];
     }
@@ -80,19 +68,12 @@ function load_places() {
  * @return bool True on success, false on failure
  */
 function save_places($places) {
-    $project_root = get_project_root();
-    $places_file = $project_root . 'data/places.json';
+    $places_file = '../data/places.json';
 
     // Create backup before saving
     if (file_exists($places_file)) {
-        $backup_file = $project_root . 'data/places_backup_' . date('Y-m-d_H-i-s') . '.json';
+        $backup_file = '../data/places_backup_' . date('Y-m-d_H-i-s') . '.json';
         copy($places_file, $backup_file);
-    }
-
-    // Ensure the directory exists
-    $data_dir = $project_root . 'data';
-    if (!is_dir($data_dir)) {
-        mkdir($data_dir, 0755, true);
     }
 
     // Write new data
@@ -106,9 +87,7 @@ function save_places($places) {
  * @return array App configuration
  */
 function load_config() {
-    $project_root = get_project_root();
-    $config_file = $project_root . 'data/config.json';
-
+    $config_file = '../data/config.json';
     if (!file_exists($config_file)) {
         return [];
     }
@@ -123,19 +102,12 @@ function load_config() {
  * @return bool True on success, false on failure
  */
 function save_config($config) {
-    $project_root = get_project_root();
-    $config_file = $project_root . 'data/config.json';
+    $config_file = '../data/config.json';
 
     // Create backup before saving
     if (file_exists($config_file)) {
-        $backup_file = $project_root . 'data/config_backup_' . date('Y-m-d_H-i-s') . '.json';
+        $backup_file = '../data/config_backup_' . date('Y-m-d_H-i-s') . '.json';
         copy($config_file, $backup_file);
-    }
-
-    // Ensure the directory exists
-    $data_dir = $project_root . 'data';
-    if (!is_dir($data_dir)) {
-        mkdir($data_dir, 0755, true);
     }
 
     // Write new data
@@ -175,10 +147,10 @@ function json_response($success, $message, $data = []) {
  * Upload an image file
  *
  * @param array $file $_FILES array element
- * @param string $destination Destination directory (relative to project root)
+ * @param string $destination Destination directory
  * @return string|false File path on success, false on failure
  */
-function upload_image($file, $destination = 'data/images/') {
+function upload_image($file, $destination = '../data/images/') {
     // Check if file was uploaded without errors
     if ($file['error'] !== UPLOAD_ERR_OK) {
         return false;
@@ -190,18 +162,15 @@ function upload_image($file, $destination = 'data/images/') {
         return false;
     }
 
-    $project_root = get_project_root();
-    $full_destination = $project_root . $destination;
-
     // Create destination directory if it doesn't exist
-    if (!is_dir($full_destination)) {
-        mkdir($full_destination, 0755, true);
+    if (!is_dir($destination)) {
+        mkdir($destination, 0755, true);
     }
 
     // Generate a unique filename
     $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
     $filename = uniqid() . '.' . $extension;
-    $filepath = $full_destination . $filename;
+    $filepath = $destination . $filename;
 
     // Move the uploaded file
     if (move_uploaded_file($file['tmp_name'], $filepath)) {
