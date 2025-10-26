@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { styled } from 'styled-components';
-import { useForm } from 'react-hook-form';
+import { useForm } from '../hooks/useForm';
 import { FeedbackMode, FeedbackPlaceOption } from '../types';
 
 interface FeedbackFormProps {
@@ -15,7 +15,7 @@ interface FeedbackFormProps {
   isSubmitting?: boolean;
 }
 
-interface FeedbackFormFields {
+interface FeedbackFormFields extends Record<string, string> {
   placeName: string;
   address: string;
   description: string;
