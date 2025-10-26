@@ -1,0 +1,62 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build-test-deploy:
+    name: Build, Migrate, and Deploy (${{ matrix.environment }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - environment: development
+            build-script: build:dev
+            database: storage/development.sqlite
+          - environment: stage
+            build-script: build:stage
+            database: storage/stage.sqlite
+          - environment: production
+            build-script: build:prod
+            database: storage/production.sqlite
+    env:
+      DATABASE_PATH: ${{ matrix.database }}
+      NODE_VERSION: '18'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare storage directory
+        run: mkdir -p storage
+
+      - name: Run database migrations
+        run: npm run migrate -- --db "$DATABASE_PATH" --reset
+
+      - name: Build frontend
+        run: npm run ${{ matrix.build-script }}
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-${{ matrix.environment }}
+          path: build
+
+      - name: Deploy backend API
+        if: matrix.environment != 'development'
+        env:
+          TARGET_ENVIRONMENT: ${{ matrix.environment }}
+        run: |
+          echo "Deploying backend API to $TARGET_ENVIRONMENT"
+          # Insert deployment commands here, for example rsync or kubectl apply
