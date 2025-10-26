@@ -101,10 +101,4 @@ export interface AppConfig {
   };
 }
 
-declare global {
-  interface Window {
-    places: Place[];
-  }
-}
-
-export default Place; 
+export default Place;

@@ -26,13 +26,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "build:backend": "tsc --project backend/tsconfig.json",
-    "migrate": "npm run build:backend --silent && node backend/dist/scripts/migrate.js",
-    "seed": "npm run build:backend --silent && node backend/dist/scripts/seed.js"
+    "start": "node scripts/dedupe-react.js && react-scripts start",
+    "build": "node scripts/dedupe-react.js && react-scripts build",
+    "test": "node scripts/dedupe-react.js && react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
