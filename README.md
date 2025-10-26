@@ -1,46 +1,68 @@
-# Getting Started with Create React App
+# DobroMesto Monorepo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository now includes the original DobroMesto frontend along with the **New Places** sub-project, which is composed of separate frontend and backend TypeScript applications. Each sub-project is fully isolated with its own tooling so you can work on only what you need.
 
-## Available Scripts
+## Structure
 
-In the project directory, you can run:
+```
+New_places/
+├── frontend/   # Vite + React + TypeScript application
+└── backend/    # Node.js + TypeScript application
+```
 
-### `npm start`
+Both parts share a common TypeScript, ESLint, and Prettier setup defined at `New_places/` to keep the coding style consistent.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Prerequisites
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [Node.js](https://nodejs.org/) 18 or newer
+- [npm](https://www.npmjs.com/) 9 or newer
 
-### `npm test`
+> **Note:** Installing dependencies from the npm registry may require additional network configuration if you are behind a proxy or working offline.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Setup
 
-### `npm run build`
+Install dependencies independently for each package:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+cd New_places/frontend
+npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+cd ../backend
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The `prepare` script will configure Husky to run ESLint before every commit the first time `npm install` finishes successfully.
 
-### `npm run eject`
+## Scripts
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Each package exposes a similar set of scripts so you can use the same workflow across the frontend and backend:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Frontend (`New_places/frontend`)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- `npm run dev` – start the Vite development server with hot module replacement.
+- `npm run build` – type-check the project and create an optimized production build.
+- `npm run lint` – lint all TypeScript and TSX files with ESLint.
+- `npm run preview` – preview the production build locally.
+- `npm run format` – format source files with Prettier.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+TypeScript path aliases are configured via `@/*` and resolved through both the shared `tsconfig.base.json` and Vite (`vite.config.ts`).
 
-## Learn More
+### Backend (`New_places/backend`)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `npm run dev` – run the Node.js server with automatic reloads (`ts-node-dev`) and support for the `@/*` alias via `tsconfig-paths/register`.
+- `npm run build` – emit compiled JavaScript into `dist/` and rewrite path aliases using `tsc-alias`.
+- `npm run lint` – lint all TypeScript source files with ESLint.
+- `npm run format` – format the source files with Prettier.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The backend also uses the shared `tsconfig.base.json` and `@/*` alias for module resolution.
+
+## Husky & Linting
+
+Husky hooks are set up in each package to run `npm run lint` before commits. ESLint and Prettier rules are centralised in `New_places/eslint.base.cjs` and `New_places/prettier.config.cjs`, ensuring both projects follow the same style guide.
+
+## Development Tips
+
+- Keep shared linting or formatting rules in the `New_places/` root to avoid duplication between packages.
+- When adding new path aliases, update both the package-specific `tsconfig.json` and any build tooling (`vite.config.ts` or runtime helpers) to keep builds and runtime environments in sync.
+
+Happy coding!
