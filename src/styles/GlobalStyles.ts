@@ -13,7 +13,8 @@ export const GlobalStyles = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     background-color: ${props => props.theme?.colors?.background || '#ffffff'};
     color: ${props => props.theme?.colors?.text || '#000000'};
-    overflow: hidden;
+    overflow-x: hidden;
+    min-height: 100vh;
   }
 
   .leaflet-container {

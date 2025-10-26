@@ -153,7 +153,9 @@
       "secondary": "#3388ff",
       "hover": "#555",
       "closeButton": "#ff4444",
-      "textSecondary": "#666"
+      "textSecondary": "#666",
+      "text": "#222222",
+      "background": "#ffffff"
     }
   },
   "content": {
