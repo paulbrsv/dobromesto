@@ -104,12 +104,12 @@ const validateValue = async (
 export const useForm = <TFieldValues extends Record<string, FieldValue> = Record<string, FieldValue>>(
   options: UseFormOptions<TFieldValues> = {}
 ) => {
-  const sanitise = (input: Partial<TFieldValues> = {}) => {
+  const sanitise = useCallback((input: Partial<TFieldValues> = {}) => {
     return Object.entries(input).reduce<Record<string, FieldValue>>((acc, [key, value]) => {
       acc[key] = typeof value === 'string' ? value : '';
       return acc;
     }, {});
-  };
+  }, []);
 
   const defaultValuesRef = useRef<Record<string, FieldValue>>(sanitise(options.defaultValues));
   const valuesRef = useRef<Record<string, FieldValue>>(sanitise(options.defaultValues));
@@ -217,14 +217,19 @@ export const useForm = <TFieldValues extends Record<string, FieldValue> = Record
     []
   );
 
-  const reset = useCallback((nextValues?: Partial<TFieldValues>) => {
-    const source = nextValues ? sanitise(nextValues) : sanitise(defaultValuesRef.current as Partial<TFieldValues>);
-    valuesRef.current = { ...source };
-    touchedRef.current = {};
-    setErrors({});
-    setIsValid(true);
-    forceRender(value => value + 1);
-  }, []);
+  const reset = useCallback(
+    (nextValues?: Partial<TFieldValues>) => {
+      const source = nextValues
+        ? sanitise(nextValues)
+        : sanitise(defaultValuesRef.current as Partial<TFieldValues>);
+      valuesRef.current = { ...source };
+      touchedRef.current = {};
+      setErrors({});
+      setIsValid(true);
+      forceRender(value => value + 1);
+    },
+    [sanitise]
+  );
 
   const formState = useMemo<FormState<TFieldValues>>(
     () => ({

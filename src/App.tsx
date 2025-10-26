@@ -13,7 +13,7 @@ import { createGlobalStyle } from 'styled-components';
 import { FeedbackModal } from './features/feedback/components/FeedbackModal';
 import { FeedbackWidget } from './features/feedback/FeedbackWidget';
 import { FeedbackPage } from './features/feedback/FeedbackPage';
-import { FeedbackMode } from './features/feedback/types';
+import { FeedbackMode, isFeedbackMode } from './features/feedback/types';
 
 // Глобальные стили для фиксов маркеров Leaflet
 const GlobalStyle = createGlobalStyle`
@@ -211,6 +211,12 @@ const App: React.FC = () => {
   const [feedbackMode, setFeedbackMode] = useState<FeedbackMode>('add_place');
 
   const isFeedbackRoute = location.pathname.startsWith('/feedback');
+  const requestedFeedbackMode = useMemo(() => {
+    const params = new URLSearchParams(location.search);
+    const mode = params.get('mode');
+    return isFeedbackMode(mode) ? mode : undefined;
+  }, [location.search]);
+  const feedbackPageMode = requestedFeedbackMode ?? 'feedback';
 
   const handleOpenFeedback = useCallback((mode: FeedbackMode) => {
     setFeedbackMode(mode);
@@ -226,6 +232,13 @@ const App: React.FC = () => {
       setIsFeedbackWidgetOpen(false);
     }
   }, [isFeedbackRoute]);
+
+  useEffect(() => {
+    if (!isFeedbackRoute && requestedFeedbackMode && requestedFeedbackMode !== 'feedback') {
+      setFeedbackMode(requestedFeedbackMode);
+      setIsFeedbackWidgetOpen(true);
+    }
+  }, [isFeedbackRoute, requestedFeedbackMode]);
 
   // Вычисляем отфильтрованные места с помощью useMemo
   const filteredPlaces = useMemo(() => {
@@ -469,7 +482,7 @@ const App: React.FC = () => {
             <Header config={config} onOpenFeedback={handleOpenFeedback} />
             <Main>
               {isFeedbackRoute ? (
-                <FeedbackPage initialMode="feedback" />
+                <FeedbackPage initialMode={feedbackPageMode} />
               ) : (
                 <>
                   <Filters

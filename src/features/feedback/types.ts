@@ -45,3 +45,6 @@ export interface FeedbackSubmissionResult {
   success: boolean;
   message: string;
 }
+
+export const isFeedbackMode = (value: string | null | undefined): value is FeedbackMode =>
+  value === 'add_place' || value === 'changes_request' || value === 'feedback';

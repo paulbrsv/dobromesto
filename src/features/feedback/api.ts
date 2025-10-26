@@ -1,4 +1,4 @@
-import { FeedbackMode, FeedbackPlaceOption, FeedbackRequestPayload } from './types';
+import { FeedbackPlaceOption, FeedbackRequestPayload } from './types';
 
 const JSON_HEADERS = {
   'Content-Type': 'application/json',

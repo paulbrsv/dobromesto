@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { styled } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { AppConfig } from '../../types/places';
-import { FeedbackMode } from '../../features/feedback/types';
+import { FeedbackMode, isFeedbackMode } from '../../features/feedback/types';
 
 interface HeaderProps {
   config: AppConfig;
@@ -72,8 +72,7 @@ const Navigation = styled.nav<{ $isOpen: boolean }>`
   display: flex;
   gap: 20px;
 
-  a,
-  button {
+  a {
     color: white;
     text-decoration: none;
     transition: opacity 0.2s ease;
@@ -101,6 +100,46 @@ const Navigation = styled.nav<{ $isOpen: boolean }>`
   }
 `;
 
+const isModifiedEvent = (event: React.MouseEvent<HTMLAnchorElement>) =>
+  event.defaultPrevented || event.button !== 0 || event.metaKey || event.altKey || event.ctrlKey || event.shiftKey;
+
+const parseModeFromHref = (href?: string): FeedbackMode | null => {
+  if (!href) {
+    return null;
+  }
+
+  try {
+    const url = new URL(href, window.location.origin);
+    const modeParam = url.searchParams.get('mode');
+    if (isFeedbackMode(modeParam) && modeParam !== 'feedback') {
+      return modeParam;
+    }
+  } catch (error) {
+    const match = href.match(/mode=([^&]+)/);
+    if (match && isFeedbackMode(match[1]) && match[1] !== 'feedback') {
+      return match[1];
+    }
+  }
+
+  return null;
+};
+
+const resolveInternalHref = (href: string | undefined): string | null => {
+  if (!href) {
+    return null;
+  }
+
+  if (href.startsWith('#')) {
+    return null;
+  }
+
+  if (/^[a-zA-Z][a-zA-Z0-9+.-]*:/i.test(href)) {
+    return null;
+  }
+
+  return href.startsWith('/') ? href : `/${href}`;
+};
+
 export const Header: React.FC<HeaderProps> = ({ config, onOpenFeedback }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
@@ -115,29 +154,43 @@ export const Header: React.FC<HeaderProps> = ({ config, onOpenFeedback }) => {
   };
 
   const handleLinkClick = (
-    event: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
-    label: string,
-    href: string
+    event: React.MouseEvent<HTMLAnchorElement>,
+    link: AppConfig['content']['navLinks'][number]
   ) => {
-    const normalized = label.trim().toLowerCase();
+    const { href, label } = link;
 
-    if (onOpenFeedback && normalized.includes('add') && normalized.includes('place')) {
+    if (isModifiedEvent(event)) {
+      setIsMenuOpen(false);
+      return;
+    }
+
+    const normalizedLabel = label.trim().toLowerCase();
+    const derivedMode = parseModeFromHref(href);
+    const fallbackMode: FeedbackMode = normalizedLabel.includes('change')
+      ? 'changes_request'
+      : 'add_place';
+    const shouldOpenFeedbackWidget =
+      onOpenFeedback &&
+      (derivedMode ||
+        (normalizedLabel.includes('add') && normalizedLabel.includes('place')) ||
+        normalizedLabel.includes('change'));
+
+    if (shouldOpenFeedbackWidget && onOpenFeedback) {
       event.preventDefault();
       setIsMenuOpen(false);
-      onOpenFeedback('add_place');
+      onOpenFeedback(derivedMode ?? fallbackMode);
       return;
     }
 
-    if (normalized.includes('feedback')) {
-      event.preventDefault();
-      handleNavigate(href || '/feedback');
+    const internalHref = resolveInternalHref(href);
+
+    if (!internalHref) {
+      setIsMenuOpen(false);
       return;
     }
 
-    if (href) {
-      event.preventDefault();
-      handleNavigate(href);
-    }
+    event.preventDefault();
+    handleNavigate(internalHref);
   };
 
   return (
@@ -158,13 +211,9 @@ export const Header: React.FC<HeaderProps> = ({ config, onOpenFeedback }) => {
 
         <Navigation $isOpen={isMenuOpen}>
           {config.content.navLinks.map((link, index) => (
-            <button
-              key={index}
-              type="button"
-              onClick={event => handleLinkClick(event, link.label, link.href)}
-            >
+            <a key={index} href={link.href} onClick={event => handleLinkClick(event, link)}>
               {link.label}
-            </button>
+            </a>
           ))}
         </Navigation>
       </HeaderContent>
