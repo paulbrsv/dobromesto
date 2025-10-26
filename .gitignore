@@ -1,0 +1,7 @@
+node_modules/
+backend/dist/
+backend/data/*
+!backend/data/.gitkeep
+backend/data/**/*.sqlite*
+backend/data/**/*.db
+backend/data/**/*.sqlite3-journal

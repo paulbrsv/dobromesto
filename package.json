@@ -29,7 +29,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:backend": "tsc --project backend/tsconfig.json",
+    "migrate": "npm run build:backend --silent && node backend/dist/scripts/migrate.js",
+    "seed": "npm run build:backend --silent && node backend/dist/scripts/seed.js"
   },
   "eslintConfig": {
     "extends": [
@@ -48,5 +51,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {}
 }
