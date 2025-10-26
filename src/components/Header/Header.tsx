@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { styled } from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import { AppConfig } from '../../types/places';
+import { FeedbackMode } from '../../features/feedback/types';
 
 interface HeaderProps {
   config: AppConfig;
+  onOpenFeedback?: (mode: FeedbackMode) => void;
 }
 
 const HeaderContainer = styled.header`
@@ -69,10 +72,16 @@ const Navigation = styled.nav<{ $isOpen: boolean }>`
   display: flex;
   gap: 20px;
 
-  a {
+  a,
+  button {
     color: white;
     text-decoration: none;
     transition: opacity 0.2s ease;
+    background: none;
+    border: none;
+    font: inherit;
+    padding: 0;
+    cursor: pointer;
 
     &:hover {
       opacity: 0.8;
@@ -92,11 +101,43 @@ const Navigation = styled.nav<{ $isOpen: boolean }>`
   }
 `;
 
-export const Header: React.FC<HeaderProps> = ({ config }) => {
+export const Header: React.FC<HeaderProps> = ({ config, onOpenFeedback }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleNavigate = (href: string) => {
+    setIsMenuOpen(false);
+    navigate(href);
+  };
+
+  const handleLinkClick = (
+    event: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
+    label: string,
+    href: string
+  ) => {
+    const normalized = label.trim().toLowerCase();
+
+    if (onOpenFeedback && normalized.includes('add') && normalized.includes('place')) {
+      event.preventDefault();
+      setIsMenuOpen(false);
+      onOpenFeedback('add_place');
+      return;
+    }
+
+    if (normalized.includes('feedback')) {
+      event.preventDefault();
+      handleNavigate(href || '/feedback');
+      return;
+    }
+
+    if (href) {
+      event.preventDefault();
+      handleNavigate(href);
+    }
   };
 
   return (
@@ -117,9 +158,13 @@ export const Header: React.FC<HeaderProps> = ({ config }) => {
 
         <Navigation $isOpen={isMenuOpen}>
           {config.content.navLinks.map((link, index) => (
-            <a key={index} href={link.href}>
+            <button
+              key={index}
+              type="button"
+              onClick={event => handleLinkClick(event, link.label, link.href)}
+            >
               {link.label}
-            </a>
+            </button>
           ))}
         </Navigation>
       </HeaderContent>

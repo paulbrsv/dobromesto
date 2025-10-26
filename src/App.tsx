@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { ThemeProvider } from 'styled-components';
+import { useLocation } from 'react-router-dom';
 import { Header } from './components/Header/Header';
 import { Map } from './components/Map/Map';
 import { PlacesList } from './components/PlacesList/PlacesList';
@@ -9,6 +10,10 @@ import { useUrlFilters } from './hooks/useUrlFilters';
 import { styled } from 'styled-components';
 import L from 'leaflet';
 import { createGlobalStyle } from 'styled-components';
+import { FeedbackModal } from './features/feedback/components/FeedbackModal';
+import { FeedbackWidget } from './features/feedback/FeedbackWidget';
+import { FeedbackPage } from './features/feedback/FeedbackPage';
+import { FeedbackMode } from './features/feedback/types';
 
 // Глобальные стили для фиксов маркеров Leaflet
 const GlobalStyle = createGlobalStyle`
@@ -192,6 +197,7 @@ const LoaderSpinner = styled.div`
 `;
 
 const App: React.FC = () => {
+  const location = useLocation();
   const [config, setConfig] = useState<AppConfig | null>(null);
   const [places, setPlaces] = useState<Place[]>([]);
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
@@ -201,6 +207,25 @@ const App: React.FC = () => {
   const mapRef = useRef<L.Map | null>(null);
   const userMarkerRef = useRef<L.Marker | null>(null);
   const [mapBounds, setMapBounds] = useState<L.LatLngBounds | null>(null);
+  const [isFeedbackWidgetOpen, setIsFeedbackWidgetOpen] = useState(false);
+  const [feedbackMode, setFeedbackMode] = useState<FeedbackMode>('add_place');
+
+  const isFeedbackRoute = location.pathname.startsWith('/feedback');
+
+  const handleOpenFeedback = useCallback((mode: FeedbackMode) => {
+    setFeedbackMode(mode);
+    setIsFeedbackWidgetOpen(true);
+  }, []);
+
+  const handleCloseFeedback = useCallback(() => {
+    setIsFeedbackWidgetOpen(false);
+  }, []);
+
+  useEffect(() => {
+    if (isFeedbackRoute) {
+      setIsFeedbackWidgetOpen(false);
+    }
+  }, [isFeedbackRoute]);
 
   // Вычисляем отфильтрованные места с помощью useMemo
   const filteredPlaces = useMemo(() => {
@@ -433,52 +458,65 @@ const App: React.FC = () => {
       <GlobalStyle />
       {/* React-лоадер убран, теперь используется только HTML-лоадер */}
       {/* Отображаем основной контент в любом случае, но только показываем после загрузки */}
-      <AppContainer style={{ opacity: (!isLoading && config) ? 1 : 0, visibility: (!isLoading && config) ? 'visible' : 'hidden' }}>
-        {config && (
-          <>
-            <Header config={config} />
-            <Main>
-              <Filters
-                config={config}
-                activeFilters={activeFilters}
-                onFilterChange={handleFilterChange}
-                filterCounts={filterCounts}
-                toggleFilter={toggleFilter}
-                isFilterAvailable={isFilterAvailable}
-                resetFilters={handleReset}
-              />
-              <Content>
-                <Map
-                  places={filteredPlaces}
+    <AppContainer style={{ opacity: (!isLoading && config) ? 1 : 0, visibility: (!isLoading && config) ? 'visible' : 'hidden' }}>
+      {config && (
+        <>
+          <Header config={config} onOpenFeedback={handleOpenFeedback} />
+          <Main>
+            {isFeedbackRoute ? (
+              <FeedbackPage initialMode="feedback" />
+            ) : (
+              <>
+                <Filters
                   config={config}
-                  onMarkerClick={handlePlaceSelect}
-                  selectedPlace={selectedPlace}
-                  mapRef={mapRef}
-                  onPopupClose={handlePopupClose}
-                  onBoundsChange={handleBoundsChange}
+                  activeFilters={activeFilters}
+                  onFilterChange={handleFilterChange}
+                  filterCounts={filterCounts}
+                  toggleFilter={toggleFilter}
+                  isFilterAvailable={isFilterAvailable}
+                  resetFilters={handleReset}
                 />
-                {isListVisible && (
-                  <PlacesList
+                <Content>
+                  <Map
+                    places={filteredPlaces}
                     config={config}
-                    places={sortedPlaces}
-                    onPlaceSelect={handlePlaceSelect}
+                    onMarkerClick={handlePlaceSelect}
                     selectedPlace={selectedPlace}
-                    isVisible={isListVisible}
-                    onClose={() => setIsListVisible(false)}
+                    mapRef={mapRef}
+                    onPopupClose={handlePopupClose}
+                    onBoundsChange={handleBoundsChange}
                   />
-                )}
-                <ShowListButton onClick={() => setIsListVisible(true)}>
-                  {config.content.buttonLabels.showList}
-                </ShowListButton>
-                {/* Кнопка "Показать ближайшие" отображается только на мобильных устройствах */}
-                <NearbyButton onClick={handleShowNearby}>
-                  {config.content.buttonLabels.showNearby}
-                </NearbyButton>
-              </Content>
-            </Main>
-          </>
-        )}
-      </AppContainer>
+                  {isListVisible && (
+                    <PlacesList
+                      config={config}
+                      places={sortedPlaces}
+                      onPlaceSelect={handlePlaceSelect}
+                      selectedPlace={selectedPlace}
+                      isVisible={isListVisible}
+                      onClose={() => setIsListVisible(false)}
+                    />
+                  )}
+                  <ShowListButton onClick={() => setIsListVisible(true)}>
+                    {config.content.buttonLabels.showList}
+                  </ShowListButton>
+                  {/* Кнопка "Показать ближайшие" отображается только на мобильных устройствах */}
+                  <NearbyButton onClick={handleShowNearby}>
+                    {config.content.buttonLabels.showNearby}
+                  </NearbyButton>
+                </Content>
+              </>
+            )}
+          </Main>
+          <FeedbackModal isOpen={isFeedbackWidgetOpen} onClose={handleCloseFeedback}>
+            <FeedbackWidget
+              initialMode={feedbackMode}
+              onClose={handleCloseFeedback}
+              title="Добавить место"
+            />
+          </FeedbackModal>
+        </>
+      )}
+    </AppContainer>
     </ThemeProvider>
   );
 };
