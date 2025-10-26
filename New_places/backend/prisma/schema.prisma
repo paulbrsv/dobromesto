@@ -1,0 +1,80 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  places    Place[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Filter {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  places    PlaceFilter[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Place {
+  id          Int           @id @default(autoincrement())
+  name        String
+  description String?
+  address     String?
+  category    Category      @relation(fields: [categoryId], references: [id])
+  categoryId  Int
+  filters     PlaceFilter[]
+  reviews     Review[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model PlaceFilter {
+  place   Place  @relation(fields: [placeId], references: [id])
+  placeId Int
+  filter  Filter @relation(fields: [filterId], references: [id])
+  filterId Int
+
+  @@id([placeId, filterId])
+}
+
+model Setting {
+  id        Int      @id @default(autoincrement())
+  key       String   @unique
+  value     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Review {
+  id        Int      @id @default(autoincrement())
+  place     Place    @relation(fields: [placeId], references: [id])
+  placeId   Int
+  rating    Int
+  comment   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Suggestion {
+  id          Int      @id @default(autoincrement())
+  placeName   String
+  description String?
+  contact     String?
+  status      SuggestionStatus @default(PENDING)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+enum SuggestionStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
