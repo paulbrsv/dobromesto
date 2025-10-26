@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { styled } from 'styled-components';
-import { useForm } from '../../../react-hook-form';
+import { useForm } from 'react-hook-form';
 import { FeedbackMode, FeedbackPlaceOption } from '../types';
 
 interface FeedbackFormProps {
