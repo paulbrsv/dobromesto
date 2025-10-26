@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { styled } from 'styled-components';
 import { AppConfig } from '../../types/places';
+import { FeedbackMode, isFeedbackMode } from '../../features/feedback/types';
 
 interface HeaderProps {
   config: AppConfig;
+  onOpenFeedback?: (mode: FeedbackMode) => void;
 }
 
 const HeaderContainer = styled.header`
@@ -92,11 +94,69 @@ const Navigation = styled.nav<{ $isOpen: boolean }>`
   }
 `;
 
-export const Header: React.FC<HeaderProps> = ({ config }) => {
+const parseModeFromHref = (href?: string): FeedbackMode | null => {
+  if (!href) {
+    return null;
+  }
+
+  try {
+    const url = new URL(href, window.location.origin);
+    const modeParam = url.searchParams.get('mode');
+    if (isFeedbackMode(modeParam)) {
+      return modeParam;
+    }
+  } catch (error) {
+    const match = href.match(/mode=([^&]+)/);
+    if (match && isFeedbackMode(match[1])) {
+      return match[1];
+    }
+  }
+
+  return null;
+};
+
+const getModeFromLink = (
+  link: AppConfig['content']['navLinks'][number]
+): FeedbackMode | null => {
+  const derivedMode = parseModeFromHref(link.href);
+  if (derivedMode && derivedMode !== 'feedback') {
+    return derivedMode;
+  }
+
+  const normalizedLabel = link.label.trim().toLowerCase();
+
+  if (normalizedLabel.includes('change')) {
+    return 'changes_request';
+  }
+
+  if (normalizedLabel.includes('add') && normalizedLabel.includes('place')) {
+    return 'add_place';
+  }
+
+  return null;
+};
+
+export const Header: React.FC<HeaderProps> = ({ config, onOpenFeedback }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleLinkClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    link: AppConfig['content']['navLinks'][number]
+  ) => {
+    const mode = onOpenFeedback ? getModeFromLink(link) : null;
+
+    if (mode && onOpenFeedback) {
+      event.preventDefault();
+      setIsMenuOpen(false);
+      onOpenFeedback(mode);
+      return;
+    }
+
+    setIsMenuOpen(false);
   };
 
   return (
@@ -117,7 +177,11 @@ export const Header: React.FC<HeaderProps> = ({ config }) => {
 
         <Navigation $isOpen={isMenuOpen}>
           {config.content.navLinks.map((link, index) => (
-            <a key={index} href={link.href}>
+            <a
+              key={index}
+              href={link.href}
+              onClick={event => handleLinkClick(event, link)}
+            >
               {link.label}
             </a>
           ))}
