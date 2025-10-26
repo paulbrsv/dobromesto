@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { styled } from 'styled-components';
-import { useForm } from 'react-hook-form';
+import { useForm } from '../../../react-hook-form';
 import { FeedbackMode, FeedbackPlaceOption } from '../types';
 
 interface FeedbackFormProps {
@@ -10,6 +10,7 @@ interface FeedbackFormProps {
   placesError?: string | null;
   onSubmit: (values: Record<string, unknown>) => Promise<void>;
   onSuccess?: () => void;
+  onReloadPlaces?: () => void;
   submitError?: string | null;
   isSubmitting?: boolean;
 }
@@ -119,6 +120,29 @@ const LoadingText = styled.p`
   color: #555;
 `;
 
+const RetryWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+`;
+
+const RetryButton = styled.button`
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #3388ff;
+  background: transparent;
+  color: #3388ff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+`;
+
 export const FeedbackForm: React.FC<FeedbackFormProps> = ({
   mode,
   places,
@@ -128,6 +152,7 @@ export const FeedbackForm: React.FC<FeedbackFormProps> = ({
   onSuccess,
   submitError,
   isSubmitting,
+  onReloadPlaces,
 }) => {
   const {
     register,
@@ -194,7 +219,7 @@ export const FeedbackForm: React.FC<FeedbackFormProps> = ({
               placeholder="Например, Cafe Central"
               {...register('placeName', { required: 'Укажите название заведения' })}
             />
-            {errors.placeName && <ErrorText>{errors.placeName.message}</ErrorText>}
+            {errors.placeName?.message && <ErrorText>{errors.placeName.message}</ErrorText>}
           </FieldGroup>
 
           <FieldGroup>
@@ -204,7 +229,7 @@ export const FeedbackForm: React.FC<FeedbackFormProps> = ({
               placeholder="Улица, номер дома"
               {...register('address', { required: 'Нужно указать адрес' })}
             />
-            {errors.address && <ErrorText>{errors.address.message}</ErrorText>}
+            {errors.address?.message && <ErrorText>{errors.address.message}</ErrorText>}
           </FieldGroup>
 
           <FieldGroup>
@@ -217,7 +242,7 @@ export const FeedbackForm: React.FC<FeedbackFormProps> = ({
                 minLength: { value: 10, message: 'Описание должно содержать минимум 10 символов' },
               })}
             />
-            {errors.description && <ErrorText>{errors.description.message}</ErrorText>}
+            {errors.description?.message && <ErrorText>{errors.description.message}</ErrorText>}
           </FieldGroup>
 
           <FieldGroup>
@@ -255,8 +280,17 @@ export const FeedbackForm: React.FC<FeedbackFormProps> = ({
                     </option>
                   ))}
                 </Select>
-                {errors.placeId && <ErrorText>{errors.placeId.message}</ErrorText>}
-                {placesError && <ErrorText>{placesError}</ErrorText>}
+                {errors.placeId?.message && <ErrorText>{errors.placeId.message}</ErrorText>}
+                {placesError && (
+                  <RetryWrapper>
+                    <ErrorText role="alert">{placesError}</ErrorText>
+                    {onReloadPlaces && (
+                      <RetryButton type="button" onClick={onReloadPlaces} disabled={isPlacesLoading}>
+                        {isPlacesLoading ? 'Повторяем…' : 'Повторить'}
+                      </RetryButton>
+                    )}
+                  </RetryWrapper>
+                )}
               </>
             )}
           </FieldGroup>
@@ -271,7 +305,7 @@ export const FeedbackForm: React.FC<FeedbackFormProps> = ({
                 minLength: { value: 5, message: 'Добавьте чуть больше деталей' },
               })}
             />
-            {errors.changes && <ErrorText>{errors.changes.message}</ErrorText>}
+            {errors.changes?.message && <ErrorText>{errors.changes.message}</ErrorText>}
           </FieldGroup>
 
           <FieldGroup>
@@ -301,7 +335,7 @@ export const FeedbackForm: React.FC<FeedbackFormProps> = ({
                 },
               })}
             />
-            {errors.email && <ErrorText>{errors.email.message}</ErrorText>}
+            {errors.email?.message && <ErrorText>{errors.email.message}</ErrorText>}
           </FieldGroup>
 
           <FieldGroup>
@@ -314,7 +348,7 @@ export const FeedbackForm: React.FC<FeedbackFormProps> = ({
                 minLength: { value: 5, message: 'Добавьте больше деталей' },
               })}
             />
-            {errors.message && <ErrorText>{errors.message.message}</ErrorText>}
+            {errors.message?.message && <ErrorText>{errors.message.message}</ErrorText>}
           </FieldGroup>
         </>
       )}

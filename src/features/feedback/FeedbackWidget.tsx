@@ -63,37 +63,50 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
   const [places, setPlaces] = useState<FeedbackPlaceOption[]>([]);
   const [placesError, setPlacesError] = useState<string | null>(null);
   const [isPlacesLoading, setIsPlacesLoading] = useState(false);
+  const [hasLoadedPlaces, setHasLoadedPlaces] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [toast, setToast] = useState<ToastState | null>(null);
 
   const loadPlaces = useCallback(async () => {
+    if (isPlacesLoading) {
+      return;
+    }
+
     setIsPlacesLoading(true);
     setPlacesError(null);
+
     try {
       const loadedPlaces = await fetchPlaces();
       setPlaces(loadedPlaces);
+      setHasLoadedPlaces(true);
     } catch (error) {
-      setPlacesError('Не удалось загрузить список мест. Попробуйте позже.');
       console.error(error);
+      setPlacesError('Не удалось загрузить список мест. Попробуйте позже.');
     } finally {
       setIsPlacesLoading(false);
     }
-  }, []);
+  }, [isPlacesLoading]);
 
   useEffect(() => {
-    if (mode === 'changes_request') {
+    if (mode === 'changes_request' && !hasLoadedPlaces) {
       loadPlaces();
+    }
+    if (mode !== 'changes_request') {
+      setPlacesError(null);
     }
     setSubmitError(null);
     setToast(null);
-  }, [mode, loadPlaces]);
+  }, [mode, loadPlaces, hasLoadedPlaces]);
 
   useEffect(() => {
     setMode(initialMode);
     setSubmitError(null);
     setToast(null);
-  }, [initialMode]);
+    if (initialMode === 'changes_request' && !hasLoadedPlaces) {
+      loadPlaces();
+    }
+  }, [initialMode, loadPlaces, hasLoadedPlaces]);
 
   const handleSubmit = useCallback(
     async (values: Record<string, unknown>) => {
@@ -139,6 +152,7 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
         isPlacesLoading={isPlacesLoading}
         placesError={placesError}
         onSubmit={handleSubmit}
+        onReloadPlaces={mode === 'changes_request' ? loadPlaces : undefined}
         submitError={submitError}
         isSubmitting={isSubmitting}
       />
