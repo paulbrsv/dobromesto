@@ -458,65 +458,70 @@ const App: React.FC = () => {
       <GlobalStyle />
       {/* React-лоадер убран, теперь используется только HTML-лоадер */}
       {/* Отображаем основной контент в любом случае, но только показываем после загрузки */}
-    <AppContainer style={{ opacity: (!isLoading && config) ? 1 : 0, visibility: (!isLoading && config) ? 'visible' : 'hidden' }}>
-      {config && (
-        <>
-          <Header config={config} onOpenFeedback={handleOpenFeedback} />
-          <Main>
-            {isFeedbackRoute ? (
-              <FeedbackPage initialMode="feedback" />
-            ) : (
-              <>
-                <Filters
-                  config={config}
-                  activeFilters={activeFilters}
-                  onFilterChange={handleFilterChange}
-                  filterCounts={filterCounts}
-                  toggleFilter={toggleFilter}
-                  isFilterAvailable={isFilterAvailable}
-                  resetFilters={handleReset}
-                />
-                <Content>
-                  <Map
-                    places={filteredPlaces}
+      <AppContainer
+        style={{
+          opacity: !isLoading && config ? 1 : 0,
+          visibility: !isLoading && config ? 'visible' : 'hidden',
+        }}
+      >
+        {config && (
+          <>
+            <Header config={config} onOpenFeedback={handleOpenFeedback} />
+            <Main>
+              {isFeedbackRoute ? (
+                <FeedbackPage initialMode="feedback" />
+              ) : (
+                <>
+                  <Filters
                     config={config}
-                    onMarkerClick={handlePlaceSelect}
-                    selectedPlace={selectedPlace}
-                    mapRef={mapRef}
-                    onPopupClose={handlePopupClose}
-                    onBoundsChange={handleBoundsChange}
+                    activeFilters={activeFilters}
+                    onFilterChange={handleFilterChange}
+                    filterCounts={filterCounts}
+                    toggleFilter={toggleFilter}
+                    isFilterAvailable={isFilterAvailable}
+                    resetFilters={handleReset}
                   />
-                  {isListVisible && (
-                    <PlacesList
+                  <Content>
+                    <Map
+                      places={filteredPlaces}
                       config={config}
-                      places={sortedPlaces}
-                      onPlaceSelect={handlePlaceSelect}
+                      onMarkerClick={handlePlaceSelect}
                       selectedPlace={selectedPlace}
-                      isVisible={isListVisible}
-                      onClose={() => setIsListVisible(false)}
+                      mapRef={mapRef}
+                      onPopupClose={handlePopupClose}
+                      onBoundsChange={handleBoundsChange}
                     />
-                  )}
-                  <ShowListButton onClick={() => setIsListVisible(true)}>
-                    {config.content.buttonLabels.showList}
-                  </ShowListButton>
-                  {/* Кнопка "Показать ближайшие" отображается только на мобильных устройствах */}
-                  <NearbyButton onClick={handleShowNearby}>
-                    {config.content.buttonLabels.showNearby}
-                  </NearbyButton>
-                </Content>
-              </>
-            )}
-          </Main>
-          <FeedbackModal isOpen={isFeedbackWidgetOpen} onClose={handleCloseFeedback}>
-            <FeedbackWidget
-              initialMode={feedbackMode}
-              onClose={handleCloseFeedback}
-              title="Добавить место"
-            />
-          </FeedbackModal>
-        </>
-      )}
-    </AppContainer>
+                    {isListVisible && (
+                      <PlacesList
+                        config={config}
+                        places={sortedPlaces}
+                        onPlaceSelect={handlePlaceSelect}
+                        selectedPlace={selectedPlace}
+                        isVisible={isListVisible}
+                        onClose={() => setIsListVisible(false)}
+                      />
+                    )}
+                    <ShowListButton onClick={() => setIsListVisible(true)}>
+                      {config.content.buttonLabels.showList}
+                    </ShowListButton>
+                    {/* Кнопка "Показать ближайшие" отображается только на мобильных устройствах */}
+                    <NearbyButton onClick={handleShowNearby}>
+                      {config.content.buttonLabels.showNearby}
+                    </NearbyButton>
+                  </Content>
+                </>
+              )}
+            </Main>
+            <FeedbackModal isOpen={isFeedbackWidgetOpen} onClose={handleCloseFeedback}>
+              <FeedbackWidget
+                initialMode={feedbackMode}
+                onClose={handleCloseFeedback}
+                title="Добавить место"
+              />
+            </FeedbackModal>
+          </>
+        )}
+      </AppContainer>
     </ThemeProvider>
   );
 };
